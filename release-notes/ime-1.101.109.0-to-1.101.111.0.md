@@ -2,163 +2,166 @@
 
 ## Summary
 
-Intune Management Extension MSI changed from `1.101.109.0` to `1.101.111.0`.
+This release updates the Intune Management Extension MSI from **1.101.109.0** to **1.101.111.0**.
 
-The MSI evidence shows a versioned payload replacement with:
-
-- No `CustomAction` table changes.
-- No install sequence table changes.
-- Broad file hash/version changes across the IME payload.
-- One meaningful managed-code/data change proven in `Microsoft.Management.Clients.IntuneManagementExtension.TamperProtection.dll`: the sidecar signing certificate intermediate trust data was expanded.
-
-No customer impact is directly proven by the supplied evidence.
+**Evidence-backed finding:** no MSI custom action or install sequence changes were detected. The strongest functional code evidence is a SideCar signing certificate trust-list refresh in `Microsoft.Management.Clients.IntuneManagementExtension.TamperProtection.dll`.
 
 ## What changed
 
 ### Facts
 
-- `ProductVersion` changed:
+- MSI ProductVersion changed:
   - `1.101.109.0` → `1.101.111.0`
-- `ProductCode` changed:
+- MSI ProductCode changed:
   - `{30660FD5-D7DB-4A20-872D-382274CA0E44}` → `{CEFAEC57-33DC-4775-BFD2-561699357699}`
-- `UpgradeCode` stayed the same:
-  - `{9FE9701C-0F89-40B4-B77A-AA65607E87D8}`
-- MSI size stayed the same:
-  - `565,248` bytes
-- MSI SHA-256 changed:
-  - Old: `8C8B0593F2ED84A10A8BE246EB0BA22E6A9D8678C976460C504172FFD0572660`
-  - New: `31CF9221A53DED65BB8ADE9E6EE2E2FAA68A9AA9CD9FFA79BC039C72370C797D`
-- File changes reported: `77`
-- MSI table diff rows: `156`
-- Managed method changes reported: `54`
-- `CustomAction` diff rows: `0`
+- CustomAction table diff rows: `0`
 - Install sequence diff rows: `0`
+- File changes reported: `77`
+- Managed method changes reported: `54`
+- Method-level changes were reported only for:
+  - `Microsoft.Management.Clients.IntuneManagementExtension.TamperProtection.dll`
+  - `OneDSApi.dll`
 
-### Meaningful DLL change
+### Main code/data change
 
-`Microsoft.Management.Clients.IntuneManagementExtension.TamperProtection.dll` changed in `SideCarSigningCertificateChainInfo::.cctor`.
+`TamperProtection.dll` contains the only clearly meaningful managed code/data change shown by the focused DLL evidence.
 
-Added to `IntermediateCertificateTrustedSubjectNames`:
+The changed function is:
 
-- `DigiCert Global G2 TLS RSA SHA256 2020 CA1`
-- `DigiCert Basic OV G2 TLS CN RSA4096 SHA256 2022 CA1`
+```text
+Microsoft.Management.Clients.IntuneManagementExtension.TamperProtection.CertificateValidation.SideCarSigningCertificateChainInfo::.cctor
+```
 
-Added to `IntermediateCertificateTrustedThumbprints`:
+This static constructor initializes SideCar signing certificate-chain trust data. Its IL code size increased from `1076` bytes to `1120` bytes.
 
-- `1B511ABEAD59C6CE207077C0BF0E0043B1382612`
-- `60707270F2100EE2B771FEC9EFFAD8C9BFFE3358`
+Added intermediate certificate subject names:
+
+```text
+DigiCert Global G2 TLS RSA SHA256 2020 CA1
+DigiCert Basic OV G2 TLS CN RSA4096 SHA256 2022 CA1
+```
+
+Added intermediate certificate thumbprints:
+
+```text
+1B511ABEAD59C6CE207077C0BF0E0043B1382612
+60707270F2100EE2B771FEC9EFFAD8C9BFFE3358
+```
 
 ## Why it matters
 
-### Supported by evidence
+### Facts
 
-- The TamperProtection sidecar certificate chain trust data was expanded.
-- The change is targeted to intermediate certificate subject names and thumbprints.
-- No evidence shows a general relaxation of certificate validation logic.
-- No evidence shows changes to MSI install sequencing or MSI custom actions.
+- The accepted intermediate certificate trust metadata used by the SideCar signing certificate-chain data structure was expanded.
+- Existing SideCar leaf subject names were not shown as changed.
+- Root subject names and root thumbprint lists were not shown as changed.
+- The supplied method evidence does not show a certificate validation algorithm change.
 
 ### Interpretation
 
-- The new trusted intermediate entries may support sidecar signing certificate chain validation for certificate chains using the added DigiCert intermediates or thumbprints.
-- This may be related to certificate issuance path or certificate rotation support.
-- Actual production use of these chains is not proven by the supplied evidence.
+- This likely supports SideCar signing certificate-chain validation when chains use the newly listed DigiCert intermediate identities or thumbprints.
+- Because `LeafCertificateTrustedIssuers` is assigned from `IntermediateCertificateTrustedSubjectNames`, the new intermediate subject names also become available as trusted leaf issuers in this static trust data.
+- Customer-visible impact is not proven by the supplied evidence.
 
 ## Changed components
 
-### Package and installation metadata
+### MSI/package
 
-- `ProductVersion`
-- `ProductCode`
-- `Upgrade` table version bounds
-- `Signature` table `NewerFileVersionSearch` minimum version
-- `IntuneWindowsAgent.cat` catalog file
+- `IntuneWindowsAgent_1.101.109.0.msi` removed from comparison set.
+- `IntuneWindowsAgent_1.101.111.0.msi` added to comparison set.
+- MSI size remained `565,248` bytes.
+- Upgrade/downgrade version thresholds advanced to `1.101.111.0`.
 
-### Changed payload groups
+### Payload refresh
 
-- Core service and executables:
-  - `Microsoft.Management.Services.IntuneWindowsAgent.exe`
-  - `AgentExecutor.exe`
-  - `ImeUI.exe`
-  - `ClientHealthEval.exe`
-  - `ClientCertCheck.exe`
-- IME plug-ins and workload DLLs:
-  - `Win32AppPlugIn.dll`
-  - `AppEnforcementProcessor.dll`
-  - `ScriptPlugIn.dll`
-  - `Win32AppInventoryCollector.dll`
-  - `WinGetLibrary.dll`
-  - `TamperProtection.dll`
-- Shared agent libraries:
-  - `AgentCommon.dll`
-  - `BootstrapperAgentCore.dll`
-  - `RebootCoordinator.dll`
-- Dependencies:
-  - `OneDSApi.dll`
-  - `Newtonsoft.Json.dll`
-  - `Polly.dll`
-  - `Microsoft.IdentityModel.dll`
-  - `Microsoft.IdentityModel.Extensions.dll`
-- Localized satellite resources:
-  - `AgentExecutor.resources.dll`
-  - `ImeUI.resources.dll`
+Many payload binaries changed hash/version, including:
 
-### Method-level evidence
+- `Microsoft.Management.Services.IntuneWindowsAgent.exe`
+- `AgentExecutor.exe`
+- `ImeUI.exe`
+- `ClientCertCheck.exe`
+- `ClientHealthEval.exe`
+- app/script/inventory plug-ins
+- localized resource assemblies
+- `IntuneWindowsAgent.cat`
+- dependency libraries such as `Newtonsoft.Json.dll`, `Polly.dll`, and `Microsoft.IdentityModel*`
 
-- `TamperProtection.dll`: substantive change in `SideCarSigningCertificateChainInfo::.cctor`.
-- `OneDSApi.dll`: added/removed compiler-style symbols with equivalent bodies; no functional OneDS behavior change proven.
+No method-level functional change was proven for most of these files.
 
-## Mermaid flow
+### `TamperProtection.dll`
+
+- Version: `1.101.109.0` → `1.101.111.0`
+- Size: `60,272` → `60,784` bytes
+- Primary evidenced change: expanded SideCar signing certificate intermediate trust metadata.
+
+### `OneDSApi.dll`
+
+- Version: `1.101.109.0` → `1.101.111.0`
+- Size unchanged: `190,328` bytes
+- Reported changes are compiler-generated anonymous namespace symbol renames with equivalent method bodies in the supplied evidence.
+- No OneDS telemetry behavior change is proven.
+
+## Mermaid function flow
 
 ```mermaid
 flowchart TD
-    A["IME 1.101.109.0 -> 1.101.111.0 comparison"] --> B["MSI database diff"]
-    B --> C["CustomAction rows: 0 changed"]
-    B --> D["Install sequence rows: 0 changed"]
-    B --> E["Payload files changed: 77"]
+    A["Start: SideCarSigningCertificateChainInfo .cctor"] --> B["Set shouldSkipV2Validation = false"]
 
-    E --> F["Managed method diff: 54 reported changes"]
-    F --> G["TamperProtection.dll"]
-    F --> H["OneDSApi.dll"]
+    B --> C["Create LeafCertificateTrustedSubjectNames"]
+    C --> C1["Add existing SideCarSignCert.manage-* subject names"]
+    C1 --> C2["Store LeafCertificateTrustedSubjectNames"]
 
-    G --> I["SideCarSigningCertificateChainInfo::.cctor changed"]
-    I --> J["IntermediateCertificateTrustedSubjectNames expanded"]
-    I --> K["IntermediateCertificateTrustedThumbprints expanded"]
-    J --> L["Added DigiCert Global G2 TLS RSA SHA256 2020 CA1"]
-    J --> M["Added DigiCert Basic OV G2 TLS CN RSA4096 SHA256 2022 CA1"]
-    K --> N["Added 1B511ABEAD59C6CE207077C0BF0E0043B1382612"]
-    K --> O["Added 60707270F2100EE2B771FEC9EFFAD8C9BFFE3358"]
+    C2 --> D["Create IntermediateCertificateTrustedSubjectNames"]
+    D --> D1["Add existing Microsoft Azure / Microsoft / DigiCert intermediate subject names"]
+    D1 --> D2["New subject: DigiCert Global G2 TLS RSA SHA256 2020 CA1"]
+    D2 --> D3["New subject: DigiCert Basic OV G2 TLS CN RSA4096 SHA256 2022 CA1"]
+    D3 --> D4["Store IntermediateCertificateTrustedSubjectNames"]
 
-    I --> P["Feeds sidecar signing certificate chain trust data"]
-    P --> Q["Runtime validation behavior may differ for chains using added entries"]
-    Q --> R["Actual customer impact not proven"]
+    D4 --> E["Create IntermediateCertificateTrustedThumbprints"]
+    E --> E1["Add existing intermediate thumbprints"]
+    E1 --> E2["New thumbprint: 1B511ABEAD59C6CE207077C0BF0E0043B1382612"]
+    E2 --> E3["New thumbprint: 60707270F2100EE2B771FEC9EFFAD8C9BFFE3358"]
+    E3 --> E4["Store IntermediateCertificateTrustedThumbprints"]
 
-    H --> S["Compiler-style anonymous symbol names changed"]
-    S --> T["Equivalent method bodies shown"]
-    T --> U["No functional OneDS behavior change proven"]
+    E4 --> F["Create RootCertificateTrustedSubjectNames"]
+    F --> F1["Root subject list unchanged in supplied evidence"]
+    F1 --> G["Create RootCertificateTrustedThumbprints"]
+    G --> G1["Root thumbprint lists unchanged in supplied evidence"]
+
+    G1 --> H["Assign LeafCertificateTrustedIssuers = IntermediateCertificateTrustedSubjectNames"]
+    H --> I["Assign IntermediateCertificateTrustedIssuers = RootCertificateTrustedSubjectNames"]
+    I --> J["Assign RootCertificateTrustedIssuers = RootCertificateTrustedSubjectNames"]
+    J --> K["Static SideCar signing certificate-chain trust data ready"]
+
+    K -.->|inferred; runtime caller path not proven| L["Validators may consume expanded intermediate trust data"]
 ```
 
 ## Evidence
 
-| Area | Old | New | Finding |
-|---|---:|---:|---|
-| MSI version | `1.101.109.0` | `1.101.111.0` | Version bump |
-| ProductCode | `{30660FD5-D7DB-4A20-872D-382274CA0E44}` | `{CEFAEC57-33DC-4775-BFD2-561699357699}` | Product identity changed |
-| UpgradeCode | `{9FE9701C-0F89-40B4-B77A-AA65607E87D8}` | Same | Same upgrade family |
-| MSI size | `565,248` | `565,248` | Same size, different hash |
-| CustomAction diff rows | `0` | `0` | No MSI custom action table change |
-| Install sequence diff rows | `0` | `0` | No MSI install sequence table change |
-| File changes | `77` | `77` | Broad payload replacement |
-| Managed method changes | `54` | `54` | Concentrated in `TamperProtection.dll` and `OneDSApi.dll` |
-| `TamperProtection.dll` size | `60,272` | `60,784` | Increased |
-| `SideCarSigningCertificateChainInfo::.cctor` code size | `0x434` | `0x460` | Static trust data expanded |
-| `OneDSApi.dll` size | `190,328` | `190,328` | Same size |
-| `OneDSApi.dll` version | `1.101.109.0` | `1.101.111.0` | Version bump; method bodies equivalent for shown add/remove pairs |
+- MSI deep diff:
+  - File changes: `77`
+  - MSI table diff rows: `156`
+  - CustomAction diff rows: `0`
+  - Install flow sequence diff rows: `0`
+  - Managed method changes: `54`
+- Focused `TamperProtection.dll` report:
+  - `SideCarSigningCertificateChainInfo::.cctor` grew from `1076` to `1120` IL bytes.
+  - Added two intermediate subject-name strings.
+  - Added two intermediate thumbprint strings.
+  - Other reviewed changed methods were IL-identical aside from RVA/address movement.
+- Focused `OneDSApi.dll` report:
+  - Three removed and three added compiler-mangled module methods.
+  - Old/new method bodies are equivalent except for anonymous namespace symbol prefixes.
+- Quick/extended analysis:
+  - No MSI custom action changes.
+  - No MSI install sequence changes.
+  - Broad payload version/hash refresh.
 
 ## Uncertainty
 
-- The evidence does not include source commits, product release notes, telemetry, or runtime logs.
-- The exact production runtime paths that invoke `SideCarSigningCertificateChainInfo` are not proven by this evidence.
+- The runtime entry point that invokes `SideCarSigningCertificateChainInfo` was not proven.
+- The evidence does not prove whether subject-name and thumbprint checks are combined with AND, OR, or staged validation.
 - Customer impact is not proven.
-- Native executable internals are not fully semantically diffed by the supplied managed method evidence.
-- Resource DLL string/content changes were not provided.
-- For many changed binaries, the evidence proves hash/version changes but not behavioral changes.
+- Changed resource DLLs may contain string changes, but no resource string diff was supplied.
+- Changed native or mixed-mode behavior in `OneDSApi.dll` outside the shown method evidence was not fully assessed.
+- Hash/version changes alone should not be treated as proof of functional changes.
