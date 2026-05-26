@@ -1,4 +1,4 @@
-# Intune Management Extension Release Note Tracker
+# Intune Management Extension Release Notes Tracker
 
 The Intune Management Extension Release Note Tracker is a community driven project that tracks visible changes between Microsoft Intune Management Extension releases.
 
