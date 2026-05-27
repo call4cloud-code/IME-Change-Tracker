@@ -1,4 +1,4 @@
-# Intune Management Extension release note
+# Intune Management Extension release notes
 
 ## Summary
 
