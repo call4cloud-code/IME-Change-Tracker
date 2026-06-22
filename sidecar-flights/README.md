@@ -1,6 +1,6 @@
 # Intune SideCar Flight Tracker
 
-Last run: `2026-06-21 11:35:05 UTC`
+Last run: `2026-06-22 07:00:15 UTC`
 
 | Area | Total flights | Enabled flights |
 | --- | ---: | ---: |
@@ -9,7 +9,7 @@ Last run: `2026-06-21 11:35:05 UTC`
 
 Selfhost vs PE differences in this run: **18**
 
-This run created the first local baseline. Notifications and history start from the next changed run.
+No flight events were detected since the previous snapshot.
 
 ## Current Selfhost vs PE Differences
 
