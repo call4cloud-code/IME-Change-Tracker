@@ -1,6 +1,6 @@
 {
   "SchemaVersion": "1",
-  "CapturedUtc": "2026-06-23T07:00:10.8723156Z",
+  "CapturedUtc": "2026-06-24T07:00:11.1818948Z",
   "SelfhostUrl": "https://ecs.office.com/config/v1/Intune/1.0.0.0?agents=CLI_SideCar\u0026environment=selfhost\u0026tenantId=36a3a83e-4639-48b8-a52b-7fa813e3583f\u0026clientId=0fc37f70-ffba-48ae-b078-1b86e3da1953",
   "PeUrl": "https://ecs.office.com/config/v1/Intune/1.0.0.0?agents=CLI_SideCar\u0026environment=pe\u0026tenantId=36a3a83e-4639-48b8-a52b-7fa813e3583f\u0026clientId=0fc37f70-ffba-48ae-b078-1b86e3da1953",
   "Flights": [
@@ -170,6 +170,17 @@
       "DifferentFields": ""
     },
     {
+      "Name": "EnableIsAADUserTelemetry",
+      "SelfhostValue": "true",
+      "SelfhostExpiry": "2026-06-01T00:00:00.000Z",
+      "SelfhostEnabled": true,
+      "PeValue": "",
+      "PeExpiry": "",
+      "PeEnabled": false,
+      "Status": "Only in selfhost",
+      "DifferentFields": ""
+    },
+    {
       "Name": "EnableNotificationWorkloadDispatch",
       "SelfhostValue": "true",
       "SelfhostExpiry": "2026-06-01T00:00:00.000Z",
@@ -217,6 +228,17 @@
       "Name": "EnableRealTimeComplianceDevice",
       "SelfhostValue": "true",
       "SelfhostExpiry": "2026-11-07T00:00:00Z",
+      "SelfhostEnabled": true,
+      "PeValue": "",
+      "PeExpiry": "",
+      "PeEnabled": false,
+      "Status": "Only in selfhost",
+      "DifferentFields": ""
+    },
+    {
+      "Name": "EnableStartupOptimization",
+      "SelfhostValue": "true",
+      "SelfhostExpiry": "2026-10-01T00:00:00.000Z",
       "SelfhostEnabled": true,
       "PeValue": "",
       "PeExpiry": "",
