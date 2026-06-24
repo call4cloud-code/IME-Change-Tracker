@@ -1,3 +1,3 @@
 Environment,ChangeType,Name,PreviousValue,CurrentValue,PreviousExpiry,CurrentExpiry,Details
-Selfhost,Added enabled,EnableNotificationWorkloadDispatch,,true,,2026-06-01T00:00:00.000Z,New flight exists and is enabled.
-Selfhost,Added enabled,IsPowershellScriptConcurrentProcessingEnabled,,true,,2026-06-01T00:00:00.000Z,New flight exists and is enabled.
+Selfhost,Added enabled,EnableIsAADUserTelemetry,,true,,2026-06-01T00:00:00.000Z,New flight exists and is enabled.
+Selfhost,Added enabled,EnableStartupOptimization,,true,,2026-10-01T00:00:00.000Z,New flight exists and is enabled.
