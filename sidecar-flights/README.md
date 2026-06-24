@@ -1,13 +1,13 @@
 # Intune SideCar Flight Tracker
 
-Last run: `2026-06-23 07:00:10 UTC`
+Last run: `2026-06-24 07:00:11 UTC`
 
 | Area | Total flights | Enabled flights |
 | --- | ---: | ---: |
-| Selfhost | 36 | 34 |
+| Selfhost | 38 | 36 |
 | PE | 16 | 15 |
 
-Selfhost vs PE differences in this run: **20**
+Selfhost vs PE differences in this run: **22**
 
 Flight events since previous snapshot: **2**
 
@@ -20,8 +20,8 @@ Flight events since previous snapshot: **2**
 
 | Environment | Event | Flight | Previous | Current | Previous expiry | Current expiry |
 | --- | --- | --- | --- | --- | --- | --- |
-| Selfhost | Added enabled | `EnableNotificationWorkloadDispatch` |  | `true` |  | `2026-06-01T00:00:00.000Z` |
-| Selfhost | Added enabled | `IsPowershellScriptConcurrentProcessingEnabled` |  | `true` |  | `2026-06-01T00:00:00.000Z` |
+| Selfhost | Added enabled | `EnableIsAADUserTelemetry` |  | `true` |  | `2026-06-01T00:00:00.000Z` |
+| Selfhost | Added enabled | `EnableStartupOptimization` |  | `true` |  | `2026-10-01T00:00:00.000Z` |
 
 ## Current Selfhost vs PE Differences
 
@@ -37,11 +37,13 @@ Flight events since previous snapshot: **2**
 | Only in selfhost | `EnableHourlyComplianceScriptCadence` | `true` |  |  |
 | Only in selfhost | `EnableIC3Feature` | `true` |  |  |
 | Only in selfhost | `EnableIC3Telemetry` | `true` |  |  |
+| Only in selfhost | `EnableIsAADUserTelemetry` | `true` |  |  |
 | Only in selfhost | `EnableNotificationWorkloadDispatch` | `true` |  |  |
 | Only in selfhost | `EnableOneDSProxyFeature` | `true` |  |  |
 | Only in selfhost | `EnableProcessMonitoring` | `true` |  |  |
 | Only in selfhost | `EnablePutWithTupleResult` | `true` |  |  |
 | Only in selfhost | `EnableRealTimeComplianceDevice` | `true` |  |  |
+| Only in selfhost | `EnableStartupOptimization` | `true` |  |  |
 | Only in selfhost | `ETWEventsAggregation` | `true` |  |  |
 | Only in selfhost | `featureX` | `true` |  |  |
 | Only in selfhost | `IsPowershellScriptConcurrentProcessingEnabled` | `true` |  |  |
@@ -66,11 +68,13 @@ Flight events since previous snapshot: **2**
 | `EnableHourlyComplianceScriptCadence` | `true` | `2026-11-07T00:00:00Z` |
 | `EnableIC3Feature` | `true` | `2026-06-01T00:00:00.000Z` |
 | `EnableIC3Telemetry` | `true` | `2026-06-01T00:00:00.000Z` |
+| `EnableIsAADUserTelemetry` | `true` | `2026-06-01T00:00:00.000Z` |
 | `EnableNotificationWorkloadDispatch` | `true` | `2026-06-01T00:00:00.000Z` |
 | `EnableOneDSProxyFeature` | `true` | `2026-12-31T00:00:01.000Z` |
 | `EnableProcessMonitoring` | `true` | `2026-10-18T00:00:00.000Z` |
 | `EnablePutWithTupleResult` | `true` | `2025-08-18T00:00:00.000Z` |
 | `EnableRealTimeComplianceDevice` | `true` | `2026-11-07T00:00:00Z` |
+| `EnableStartupOptimization` | `true` | `2026-10-01T00:00:00.000Z` |
 | `EnableWin32PowerMgmt` | `true` | `2025-11-01T00:00:01.000Z` |
 | `ETWEventsAggregation` | `true` | `2025-06-01T00:00:00.000Z` |
 | `featureX` | `true` | `2025-04-23T18:25:43.511Z` |
