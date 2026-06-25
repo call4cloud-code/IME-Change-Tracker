@@ -35,3 +35,4 @@ SingletonBootstrapperFlight,true,2026-06-19T00:00:00.0402432Z,True,true,2026-06-
 skipUserContextAppsWithoutUserLoggedInEnabled,true,2026-06-01T00:00:01.000Z,True,true,2026-06-01T00:00:01.000Z,True,Same,
 TcpProbe,true,2026-08-01T00:00:00.000Z,True,true,2026-08-01T00:00:00.000Z,True,Same,
 wingetAppTimeoutHandlerEnabled,true,2025-06-30T23:59:00Z,True,true,2025-06-30T23:59:00Z,True,Same,
+wingetRetryOnTransientErrors,true,2026-06-04T00:00:00.000Z,True,,,False,Only in selfhost,
