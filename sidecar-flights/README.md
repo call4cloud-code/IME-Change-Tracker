@@ -1,27 +1,26 @@
 # Intune SideCar Flight Tracker
 
-Last run: `2026-06-24 07:00:11 UTC`
+Last run: `2026-06-25 07:00:09 UTC`
 
 | Area | Total flights | Enabled flights |
 | --- | ---: | ---: |
-| Selfhost | 38 | 36 |
+| Selfhost | 39 | 37 |
 | PE | 16 | 15 |
 
-Selfhost vs PE differences in this run: **22**
+Selfhost vs PE differences in this run: **23**
 
-Flight events since previous snapshot: **2**
+Flight events since previous snapshot: **1**
 
 | Environment | Added | Added enabled | Enabled | Disabled | Value changed | Expiry changed | Removed |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Selfhost | 0 | 2 | 0 | 0 | 0 | 0 | 0 |
+| Selfhost | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
 | PE | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
 ## Flight Events Since Previous Snapshot
 
 | Environment | Event | Flight | Previous | Current | Previous expiry | Current expiry |
 | --- | --- | --- | --- | --- | --- | --- |
-| Selfhost | Added enabled | `EnableIsAADUserTelemetry` |  | `true` |  | `2026-06-01T00:00:00.000Z` |
-| Selfhost | Added enabled | `EnableStartupOptimization` |  | `true` |  | `2026-10-01T00:00:00.000Z` |
+| Selfhost | Added enabled | `wingetRetryOnTransientErrors` |  | `true` |  | `2026-06-04T00:00:00.000Z` |
 
 ## Current Selfhost vs PE Differences
 
@@ -49,6 +48,7 @@ Flight events since previous snapshot: **2**
 | Only in selfhost | `IsPowershellScriptConcurrentProcessingEnabled` | `true` |  |  |
 | Only in selfhost | `RunNontrackedAppsCheckinImmediatelyAfterDpp` | `true` |  |  |
 | Only in selfhost | `RunNontrackedAppsCheckinImmediatelyAfterEsp` | `true` |  |  |
+| Only in selfhost | `wingetRetryOnTransientErrors` | `true` |  |  |
 
 ## Selfhost Enabled Flights
 
@@ -90,6 +90,7 @@ Flight events since previous snapshot: **2**
 | `skipUserContextAppsWithoutUserLoggedInEnabled` | `true` | `2026-06-01T00:00:01.000Z` |
 | `TcpProbe` | `true` | `2026-08-01T00:00:00.000Z` |
 | `wingetAppTimeoutHandlerEnabled` | `true` | `2025-06-30T23:59:00Z` |
+| `wingetRetryOnTransientErrors` | `true` | `2026-06-04T00:00:00.000Z` |
 
 ## PE Enabled Flights
 
