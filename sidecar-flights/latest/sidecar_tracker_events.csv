@@ -1,1 +1,2 @@
 Environment,ChangeType,Name,PreviousValue,CurrentValue,PreviousExpiry,CurrentExpiry,Details
+PE,Added enabled,ETWEventsAggregation,,true,,2025-06-01T00:00:00.000Z,New flight exists and is enabled.
