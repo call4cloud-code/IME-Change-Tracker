@@ -1,15 +1,27 @@
 # Intune SideCar Flight Tracker
 
-Last run: `2026-07-08 07:00:08 UTC`
+Last run: `2026-07-09 07:00:08 UTC`
 
 | Area | Total flights | Enabled flights |
 | --- | ---: | ---: |
-| Selfhost | 39 | 37 |
+| Selfhost | 41 | 39 |
 | PE | 17 | 16 |
 
-Selfhost vs PE differences in this run: **22**
+Selfhost vs PE differences in this run: **24**
 
-No flight events were detected since the previous snapshot.
+Flight events since previous snapshot: **2**
+
+| Environment | Added | Added enabled | Enabled | Disabled | Value changed | Expiry changed | Removed |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Selfhost | 0 | 2 | 0 | 0 | 0 | 0 | 0 |
+| PE | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+
+## Flight Events Since Previous Snapshot
+
+| Environment | Event | Flight | Previous | Current | Previous expiry | Current expiry |
+| --- | --- | --- | --- | --- | --- | --- |
+| Selfhost | Added enabled | `OperationSpanLoggingEnabled` |  | `true` |  | `2027-12-31T23:59:59.0000000Z` |
+| Selfhost | Added enabled | `win32AppEnforcementTelemetryEnabled` |  | `true` |  | `2027-12-31T23:59:59.0000000Z` |
 
 ## Current Selfhost vs PE Differences
 
@@ -34,8 +46,10 @@ No flight events were detected since the previous snapshot.
 | Only in selfhost | `EnableStartupOptimization` | `true` |  |  |
 | Only in selfhost | `featureX` | `true` |  |  |
 | Only in selfhost | `IsPowershellScriptConcurrentProcessingEnabled` | `true` |  |  |
+| Only in selfhost | `OperationSpanLoggingEnabled` | `true` |  |  |
 | Only in selfhost | `RunNontrackedAppsCheckinImmediatelyAfterDpp` | `true` |  |  |
 | Only in selfhost | `RunNontrackedAppsCheckinImmediatelyAfterEsp` | `true` |  |  |
+| Only in selfhost | `win32AppEnforcementTelemetryEnabled` | `true` |  |  |
 | Only in selfhost | `wingetRetryOnTransientErrors` | `true` |  |  |
 
 ## Selfhost Enabled Flights
@@ -68,6 +82,7 @@ No flight events were detected since the previous snapshot.
 | `featureX` | `true` | `2025-04-23T18:25:43.511Z` |
 | `FileStreamForDetectionScripts` | `true` | `2025-05-01T00:00:01.000Z` |
 | `IsPowershellScriptConcurrentProcessingEnabled` | `true` | `2026-06-01T00:00:00.000Z` |
+| `OperationSpanLoggingEnabled` | `true` | `2027-12-31T23:59:59.0000000Z` |
 | `redirectFsForScriptsEnabled` | `true` | `2026-11-01T00:00:01.000Z` |
 | `RemediationSendResultFirst` | `true` | `2025-04-28T00:00:00.0402432Z` |
 | `RouteInventoryEventsToSidecarDB` | `true` | `2026-12-31T00:00:01.000Z` |
@@ -77,6 +92,7 @@ No flight events were detected since the previous snapshot.
 | `SingletonBootstrapperFlight` | `true` | `2026-06-19T00:00:00.0402432Z` |
 | `skipUserContextAppsWithoutUserLoggedInEnabled` | `true` | `2026-06-01T00:00:01.000Z` |
 | `TcpProbe` | `true` | `2026-08-01T00:00:00.000Z` |
+| `win32AppEnforcementTelemetryEnabled` | `true` | `2027-12-31T23:59:59.0000000Z` |
 | `wingetAppTimeoutHandlerEnabled` | `true` | `2025-06-30T23:59:00Z` |
 | `wingetRetryOnTransientErrors` | `true` | `2026-06-04T00:00:00.000Z` |
 
