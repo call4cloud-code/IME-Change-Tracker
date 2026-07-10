@@ -1,27 +1,26 @@
 # Intune SideCar Flight Tracker
 
-Last run: `2026-07-09 07:00:08 UTC`
+Last run: `2026-07-10 07:00:07 UTC`
 
 | Area | Total flights | Enabled flights |
 | --- | ---: | ---: |
-| Selfhost | 41 | 39 |
+| Selfhost | 42 | 40 |
 | PE | 17 | 16 |
 
-Selfhost vs PE differences in this run: **24**
+Selfhost vs PE differences in this run: **25**
 
-Flight events since previous snapshot: **2**
+Flight events since previous snapshot: **1**
 
 | Environment | Added | Added enabled | Enabled | Disabled | Value changed | Expiry changed | Removed |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Selfhost | 0 | 2 | 0 | 0 | 0 | 0 | 0 |
+| Selfhost | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
 | PE | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
 ## Flight Events Since Previous Snapshot
 
 | Environment | Event | Flight | Previous | Current | Previous expiry | Current expiry |
 | --- | --- | --- | --- | --- | --- | --- |
-| Selfhost | Added enabled | `OperationSpanLoggingEnabled` |  | `true` |  | `2027-12-31T23:59:59.0000000Z` |
-| Selfhost | Added enabled | `win32AppEnforcementTelemetryEnabled` |  | `true` |  | `2027-12-31T23:59:59.0000000Z` |
+| Selfhost | Added enabled | `EnableCleanupMsiKeyOnUninstall` |  | `true` |  | `2026-12-18T00:00:00.000Z` |
 
 ## Current Selfhost vs PE Differences
 
@@ -30,6 +29,7 @@ Flight events since previous snapshot: **2**
 | Only in selfhost | `APv2ScriptNullRefFix` | `true` |  |  |
 | Only in selfhost | `CollectAppInvForNonEmptyGuids` | `true` |  |  |
 | Only in selfhost | `dnsErrorRetryDelay` | `true` |  |  |
+| Only in selfhost | `EnableCleanupMsiKeyOnUninstall` | `true` |  |  |
 | Only in selfhost | `EnableComplianceMonitorSimulateMode` | `false` |  |  |
 | Only in selfhost | `EnableComponentManager` | `true` |  |  |
 | Only in selfhost | `EnableDiskUsageMonitor` | `true` |  |  |
@@ -63,6 +63,7 @@ Flight events since previous snapshot: **2**
 | `CollectAppInvForNonEmptyGuids` | `true` | `2026-04-01T00:00:00.000Z` |
 | `CommonSchemaEventsProcessing` | `true` | `2025-08-01T00:00:00.000Z` |
 | `dnsErrorRetryDelay` | `true` | `2025-09-01T00:00:00.000Z` |
+| `EnableCleanupMsiKeyOnUninstall` | `true` | `2026-12-18T00:00:00.000Z` |
 | `EnableComponentManager` | `true` | `2026-10-18T00:00:00.000Z` |
 | `EnableDiskUsageMonitor` | `true` | `2026-10-18T00:00:00.000Z` |
 | `EnableExpandedCrashTelemetry` | `true` | `2026-05-18T00:00:00.000Z` |
