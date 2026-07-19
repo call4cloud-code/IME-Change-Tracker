@@ -1,15 +1,26 @@
 # Intune SideCar Flight Tracker
 
-Last run: `2026-07-17 07:00:09 UTC`
+Last run: `2026-07-19 07:00:04 UTC`
 
 | Area | Total flights | Enabled flights |
 | --- | ---: | ---: |
-| Selfhost | 42 | 40 |
+| Selfhost | 43 | 41 |
 | PE | 17 | 16 |
 
-Selfhost vs PE differences in this run: **25**
+Selfhost vs PE differences in this run: **26**
 
-No flight events were detected since the previous snapshot.
+Flight events since previous snapshot: **1**
+
+| Environment | Added | Added enabled | Enabled | Disabled | Value changed | Expiry changed | Removed |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Selfhost | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
+| PE | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+
+## Flight Events Since Previous Snapshot
+
+| Environment | Event | Flight | Previous | Current | Previous expiry | Current expiry |
+| --- | --- | --- | --- | --- | --- | --- |
+| Selfhost | Added enabled | `EnableRealTimeComplianceAccount` |  | `true` |  | `2026-11-07T00:00:00Z` |
 
 ## Current Selfhost vs PE Differences
 
@@ -31,6 +42,7 @@ No flight events were detected since the previous snapshot.
 | Only in selfhost | `EnableOneDSProxyFeature` | `true` |  |  |
 | Only in selfhost | `EnableProcessMonitoring` | `true` |  |  |
 | Only in selfhost | `EnablePutWithTupleResult` | `true` |  |  |
+| Only in selfhost | `EnableRealTimeComplianceAccount` | `true` |  |  |
 | Only in selfhost | `EnableRealTimeComplianceDevice` | `true` |  |  |
 | Only in selfhost | `EnableStartupOptimization` | `true` |  |  |
 | Only in selfhost | `featureX` | `true` |  |  |
@@ -65,6 +77,7 @@ No flight events were detected since the previous snapshot.
 | `EnableOneDSProxyFeature` | `true` | `2026-12-31T00:00:01.000Z` |
 | `EnableProcessMonitoring` | `true` | `2026-10-18T00:00:00.000Z` |
 | `EnablePutWithTupleResult` | `true` | `2025-08-18T00:00:00.000Z` |
+| `EnableRealTimeComplianceAccount` | `true` | `2026-11-07T00:00:00Z` |
 | `EnableRealTimeComplianceDevice` | `true` | `2026-11-07T00:00:00Z` |
 | `EnableStartupOptimization` | `true` | `2026-10-01T00:00:00.000Z` |
 | `EnableWin32PowerMgmt` | `true` | `2025-11-01T00:00:01.000Z` |
