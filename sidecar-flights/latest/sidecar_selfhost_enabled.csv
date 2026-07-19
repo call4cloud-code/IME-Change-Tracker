@@ -19,6 +19,7 @@ EnableNotificationWorkloadDispatch,true,2026-06-01T00:00:00.000Z,True,,,False,On
 EnableOneDSProxyFeature,true,2026-12-31T00:00:01.000Z,True,,,False,Only in selfhost,
 EnableProcessMonitoring,true,2026-10-18T00:00:00.000Z,True,,,False,Only in selfhost,
 EnablePutWithTupleResult,true,2025-08-18T00:00:00.000Z,True,,,False,Only in selfhost,
+EnableRealTimeComplianceAccount,true,2026-11-07T00:00:00Z,True,,,False,Only in selfhost,
 EnableRealTimeComplianceDevice,true,2026-11-07T00:00:00Z,True,,,False,Only in selfhost,
 EnableStartupOptimization,true,2026-10-01T00:00:00.000Z,True,,,False,Only in selfhost,
 EnableWin32PowerMgmt,true,2025-11-01T00:00:01.000Z,True,true,2025-11-01T00:00:01.000Z,True,Same,
