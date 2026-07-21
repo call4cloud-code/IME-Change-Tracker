@@ -12,7 +12,7 @@ EnableDiskUsageMonitor,true,2026-10-18T00:00:00.000Z,True,,,False,Only in selfho
 EnableExpandedCrashTelemetry,true,2026-05-18T00:00:00.000Z,True,,,False,Only in selfhost,
 EnableGoldenSignals,true,2025-10-18T00:00:00.000Z,True,true,2025-10-18T00:00:00.000Z,True,Same,
 EnableHourlyComplianceScriptCadence,true,2026-11-07T00:00:00Z,True,,,False,Only in selfhost,
-EnableIC3Feature,true,2026-06-01T00:00:00.000Z,True,,,False,Only in selfhost,
+EnableIC3Feature,true,2027-06-01T00:00:00.000Z,True,true,2027-06-01T00:00:00.000Z,True,Same,
 EnableIC3Telemetry,true,2026-06-01T00:00:00.000Z,True,,,False,Only in selfhost,
 EnableIsAADUserTelemetry,true,2026-06-01T00:00:00.000Z,True,,,False,Only in selfhost,
 EnableNotificationWorkloadDispatch,true,2026-06-01T00:00:00.000Z,True,,,False,Only in selfhost,
