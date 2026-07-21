@@ -4,6 +4,7 @@ APv2UseStandardUserProviderNative,true,2026-06-20T00:00:00.0402432Z,True,true,20
 ClearGRSInESP,true,2026-04-01T00:00:00.000Z,True,true,2026-04-01T00:00:00.000Z,True,Same,
 CommonSchemaEventsProcessing,true,2025-08-01T00:00:00.000Z,True,true,2025-08-01T00:00:00.000Z,True,Same,
 EnableGoldenSignals,true,2025-10-18T00:00:00.000Z,True,true,2025-10-18T00:00:00.000Z,True,Same,
+EnableIC3Feature,true,2027-06-01T00:00:00.000Z,True,true,2027-06-01T00:00:00.000Z,True,Same,
 EnableWin32PowerMgmt,true,2025-11-01T00:00:01.000Z,True,true,2025-11-01T00:00:01.000Z,True,Same,
 ETWEventsAggregation,true,2025-06-01T00:00:00.000Z,True,true,2025-06-01T00:00:00.000Z,True,Same,
 FileStreamForDetectionScripts,true,2025-05-01T00:00:01.000Z,True,true,2025-05-01T00:00:01.000Z,True,Same,
