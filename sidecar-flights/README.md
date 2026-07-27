@@ -1,27 +1,15 @@
 # Intune SideCar Flight Tracker
 
-Last run: `2026-07-21 07:00:07 UTC`
+Last run: `2026-07-27 07:00:08 UTC`
 
 | Area | Total flights | Enabled flights |
 | --- | ---: | ---: |
-| Selfhost | 43 | 41 |
+| Selfhost | 44 | 42 |
 | PE | 18 | 17 |
 
-Selfhost vs PE differences in this run: **25**
+Selfhost vs PE differences in this run: **26**
 
-Flight events since previous snapshot: **2**
-
-| Environment | Added | Added enabled | Enabled | Disabled | Value changed | Expiry changed | Removed |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Selfhost | 0 | 0 | 0 | 0 | 0 | 1 | 0 |
-| PE | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
-
-## Flight Events Since Previous Snapshot
-
-| Environment | Event | Flight | Previous | Current | Previous expiry | Current expiry |
-| --- | --- | --- | --- | --- | --- | --- |
-| PE | Added enabled | `EnableIC3Feature` |  | `true` |  | `2027-06-01T00:00:00.000Z` |
-| Selfhost | Expiry changed | `EnableIC3Feature` | `true` | `true` | `2026-06-01T00:00:00.000Z` | `2027-06-01T00:00:00.000Z` |
+No flight events were detected since the previous snapshot.
 
 ## Current Selfhost vs PE Differences
 
@@ -30,6 +18,7 @@ Flight events since previous snapshot: **2**
 | Only in selfhost | `APv2ScriptNullRefFix` | `true` |  |  |
 | Only in selfhost | `CollectAppInvForNonEmptyGuids` | `true` |  |  |
 | Only in selfhost | `dnsErrorRetryDelay` | `true` |  |  |
+| Only in selfhost | `EmitSidecarMsiInstallerEvent` | `true` |  |  |
 | Only in selfhost | `EnableCleanupMsiKeyOnUninstall` | `true` |  |  |
 | Only in selfhost | `EnableComplianceMonitorSimulateMode` | `false` |  |  |
 | Only in selfhost | `EnableComponentManager` | `true` |  |  |
@@ -64,6 +53,7 @@ Flight events since previous snapshot: **2**
 | `CollectAppInvForNonEmptyGuids` | `true` | `2026-04-01T00:00:00.000Z` |
 | `CommonSchemaEventsProcessing` | `true` | `2025-08-01T00:00:00.000Z` |
 | `dnsErrorRetryDelay` | `true` | `2025-09-01T00:00:00.000Z` |
+| `EmitSidecarMsiInstallerEvent` | `true` | `2026-12-18T00:00:00.000Z` |
 | `EnableCleanupMsiKeyOnUninstall` | `true` | `2026-12-18T00:00:00.000Z` |
 | `EnableComponentManager` | `true` | `2026-10-18T00:00:00.000Z` |
 | `EnableDiskUsageMonitor` | `true` | `2026-10-18T00:00:00.000Z` |
