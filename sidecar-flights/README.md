@@ -1,13 +1,13 @@
 # Intune SideCar Flight Tracker
 
-Last run: `2026-07-31 07:00:06 UTC`
+Last run: `2026-08-03 11:45:50 UTC`
 
 | Area | Total flights | Enabled flights |
 | --- | ---: | ---: |
 | Selfhost | 44 | 42 |
-| PE | 18 | 17 |
+| PE | 20 | 19 |
 
-Selfhost vs PE differences in this run: **26**
+Selfhost vs PE differences in this run: **24**
 
 No flight events were detected since the previous snapshot.
 
@@ -22,14 +22,12 @@ No flight events were detected since the previous snapshot.
 | Only in selfhost | `EnableCleanupMsiKeyOnUninstall` | `true` |  |  |
 | Only in selfhost | `EnableComplianceMonitorSimulateMode` | `false` |  |  |
 | Only in selfhost | `EnableComponentManager` | `true` |  |  |
-| Only in selfhost | `EnableDiskUsageMonitor` | `true` |  |  |
 | Only in selfhost | `EnableExpandedCrashTelemetry` | `true` |  |  |
 | Only in selfhost | `EnableHourlyComplianceScriptCadence` | `true` |  |  |
 | Only in selfhost | `EnableIC3Telemetry` | `true` |  |  |
 | Only in selfhost | `EnableIsAADUserTelemetry` | `true` |  |  |
 | Only in selfhost | `EnableNotificationWorkloadDispatch` | `true` |  |  |
 | Only in selfhost | `EnableOneDSProxyFeature` | `true` |  |  |
-| Only in selfhost | `EnableProcessMonitoring` | `true` |  |  |
 | Only in selfhost | `EnablePutWithTupleResult` | `true` |  |  |
 | Only in selfhost | `EnableRealTimeComplianceAccount` | `true` |  |  |
 | Only in selfhost | `EnableRealTimeComplianceDevice` | `true` |  |  |
@@ -97,8 +95,10 @@ No flight events were detected since the previous snapshot.
 | `APv2UseStandardUserProviderNative` | `true` | `2026-06-20T00:00:00.0402432Z` |
 | `ClearGRSInESP` | `true` | `2026-04-01T00:00:00.000Z` |
 | `CommonSchemaEventsProcessing` | `true` | `2025-08-01T00:00:00.000Z` |
+| `EnableDiskUsageMonitor` | `true` | `2026-10-18T00:00:00.000Z` |
 | `EnableGoldenSignals` | `true` | `2025-10-18T00:00:00.000Z` |
 | `EnableIC3Feature` | `true` | `2027-06-01T00:00:00.000Z` |
+| `EnableProcessMonitoring` | `true` | `2026-10-18T00:00:00.000Z` |
 | `EnableWin32PowerMgmt` | `true` | `2025-11-01T00:00:01.000Z` |
 | `ETWEventsAggregation` | `true` | `2025-06-01T00:00:00.000Z` |
 | `FileStreamForDetectionScripts` | `true` | `2025-05-01T00:00:01.000Z` |
