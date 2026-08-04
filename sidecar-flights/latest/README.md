@@ -1,15 +1,27 @@
 # Intune SideCar Flight Tracker
 
-Last run: `2026-08-03 11:45:50 UTC`
+Last run: `2026-08-04 07:00:05 UTC`
 
 | Area | Total flights | Enabled flights |
 | --- | ---: | ---: |
 | Selfhost | 44 | 42 |
-| PE | 20 | 19 |
+| PE | 22 | 21 |
 
-Selfhost vs PE differences in this run: **24**
+Selfhost vs PE differences in this run: **22**
 
-No flight events were detected since the previous snapshot.
+Flight events since previous snapshot: **2**
+
+| Environment | Added | Added enabled | Enabled | Disabled | Value changed | Expiry changed | Removed |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Selfhost | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| PE | 0 | 2 | 0 | 0 | 0 | 0 | 0 |
+
+## Flight Events Since Previous Snapshot
+
+| Environment | Event | Flight | Previous | Current | Previous expiry | Current expiry |
+| --- | --- | --- | --- | --- | --- | --- |
+| PE | Added enabled | `EnableNotificationWorkloadDispatch` |  | `true` |  | `2026-06-01T00:00:00.000Z` |
+| PE | Added enabled | `IsPowershellScriptConcurrentProcessingEnabled` |  | `true` |  | `2026-06-01T00:00:00.000Z` |
 
 ## Current Selfhost vs PE Differences
 
@@ -26,14 +38,12 @@ No flight events were detected since the previous snapshot.
 | Only in selfhost | `EnableHourlyComplianceScriptCadence` | `true` |  |  |
 | Only in selfhost | `EnableIC3Telemetry` | `true` |  |  |
 | Only in selfhost | `EnableIsAADUserTelemetry` | `true` |  |  |
-| Only in selfhost | `EnableNotificationWorkloadDispatch` | `true` |  |  |
 | Only in selfhost | `EnableOneDSProxyFeature` | `true` |  |  |
 | Only in selfhost | `EnablePutWithTupleResult` | `true` |  |  |
 | Only in selfhost | `EnableRealTimeComplianceAccount` | `true` |  |  |
 | Only in selfhost | `EnableRealTimeComplianceDevice` | `true` |  |  |
 | Only in selfhost | `EnableStartupOptimization` | `true` |  |  |
 | Only in selfhost | `featureX` | `true` |  |  |
-| Only in selfhost | `IsPowershellScriptConcurrentProcessingEnabled` | `true` |  |  |
 | Only in selfhost | `OperationSpanLoggingEnabled` | `true` |  |  |
 | Only in selfhost | `RunNontrackedAppsCheckinImmediatelyAfterDpp` | `true` |  |  |
 | Only in selfhost | `RunNontrackedAppsCheckinImmediatelyAfterEsp` | `true` |  |  |
@@ -98,10 +108,12 @@ No flight events were detected since the previous snapshot.
 | `EnableDiskUsageMonitor` | `true` | `2026-10-18T00:00:00.000Z` |
 | `EnableGoldenSignals` | `true` | `2025-10-18T00:00:00.000Z` |
 | `EnableIC3Feature` | `true` | `2027-06-01T00:00:00.000Z` |
+| `EnableNotificationWorkloadDispatch` | `true` | `2026-06-01T00:00:00.000Z` |
 | `EnableProcessMonitoring` | `true` | `2026-10-18T00:00:00.000Z` |
 | `EnableWin32PowerMgmt` | `true` | `2025-11-01T00:00:01.000Z` |
 | `ETWEventsAggregation` | `true` | `2025-06-01T00:00:00.000Z` |
 | `FileStreamForDetectionScripts` | `true` | `2025-05-01T00:00:01.000Z` |
+| `IsPowershellScriptConcurrentProcessingEnabled` | `true` | `2026-06-01T00:00:00.000Z` |
 | `redirectFsForScriptsEnabled` | `true` | `2026-11-01T00:00:01.000Z` |
 | `RemediationSendResultFirst` | `true` | `2025-04-28T00:00:00.0402432Z` |
 | `RouteInventoryEventsToSidecarDB` | `true` | `2026-12-31T00:00:01.000Z` |
