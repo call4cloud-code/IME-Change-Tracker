@@ -1,6 +1,6 @@
 # Intune SideCar Flight Tracker
 
-Last run: `2026-08-04 07:00:05 UTC`
+Last run: `2026-08-05 07:00:06 UTC`
 
 | Area | Total flights | Enabled flights |
 | --- | ---: | ---: |
@@ -9,19 +9,7 @@ Last run: `2026-08-04 07:00:05 UTC`
 
 Selfhost vs PE differences in this run: **22**
 
-Flight events since previous snapshot: **2**
-
-| Environment | Added | Added enabled | Enabled | Disabled | Value changed | Expiry changed | Removed |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Selfhost | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| PE | 0 | 2 | 0 | 0 | 0 | 0 | 0 |
-
-## Flight Events Since Previous Snapshot
-
-| Environment | Event | Flight | Previous | Current | Previous expiry | Current expiry |
-| --- | --- | --- | --- | --- | --- | --- |
-| PE | Added enabled | `EnableNotificationWorkloadDispatch` |  | `true` |  | `2026-06-01T00:00:00.000Z` |
-| PE | Added enabled | `IsPowershellScriptConcurrentProcessingEnabled` |  | `true` |  | `2026-06-01T00:00:00.000Z` |
+No flight events were detected since the previous snapshot.
 
 ## Current Selfhost vs PE Differences
 
