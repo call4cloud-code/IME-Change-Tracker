@@ -1,3 +1,1 @@
 Environment,ChangeType,Name,PreviousValue,CurrentValue,PreviousExpiry,CurrentExpiry,Details
-PE,Added enabled,EnableNotificationWorkloadDispatch,,true,,2026-06-01T00:00:00.000Z,New flight exists and is enabled.
-PE,Added enabled,IsPowershellScriptConcurrentProcessingEnabled,,true,,2026-06-01T00:00:00.000Z,New flight exists and is enabled.
