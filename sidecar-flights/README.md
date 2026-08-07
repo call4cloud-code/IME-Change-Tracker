@@ -1,15 +1,26 @@
 # Intune SideCar Flight Tracker
 
-Last run: `2026-08-06 07:00:08 UTC`
+Last run: `2026-08-07 07:00:07 UTC`
 
 | Area | Total flights | Enabled flights |
 | --- | ---: | ---: |
-| Selfhost | 44 | 42 |
+| Selfhost | 45 | 43 |
 | PE | 22 | 21 |
 
-Selfhost vs PE differences in this run: **22**
+Selfhost vs PE differences in this run: **23**
 
-No flight events were detected since the previous snapshot.
+Flight events since previous snapshot: **1**
+
+| Environment | Added | Added enabled | Enabled | Disabled | Value changed | Expiry changed | Removed |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Selfhost | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
+| PE | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+
+## Flight Events Since Previous Snapshot
+
+| Environment | Event | Flight | Previous | Current | Previous expiry | Current expiry |
+| --- | --- | --- | --- | --- | --- | --- |
+| Selfhost | Added enabled | `EnableNotificationDedupeCache` |  | `true` |  | `2026-06-01T00:00:00.000Z` |
 
 ## Current Selfhost vs PE Differences
 
@@ -26,6 +37,7 @@ No flight events were detected since the previous snapshot.
 | Only in selfhost | `EnableHourlyComplianceScriptCadence` | `true` |  |  |
 | Only in selfhost | `EnableIC3Telemetry` | `true` |  |  |
 | Only in selfhost | `EnableIsAADUserTelemetry` | `true` |  |  |
+| Only in selfhost | `EnableNotificationDedupeCache` | `true` |  |  |
 | Only in selfhost | `EnableOneDSProxyFeature` | `true` |  |  |
 | Only in selfhost | `EnablePutWithTupleResult` | `true` |  |  |
 | Only in selfhost | `EnableRealTimeComplianceAccount` | `true` |  |  |
@@ -59,6 +71,7 @@ No flight events were detected since the previous snapshot.
 | `EnableIC3Feature` | `true` | `2027-06-01T00:00:00.000Z` |
 | `EnableIC3Telemetry` | `true` | `2026-06-01T00:00:00.000Z` |
 | `EnableIsAADUserTelemetry` | `true` | `2026-06-01T00:00:00.000Z` |
+| `EnableNotificationDedupeCache` | `true` | `2026-06-01T00:00:00.000Z` |
 | `EnableNotificationWorkloadDispatch` | `true` | `2026-06-01T00:00:00.000Z` |
 | `EnableOneDSProxyFeature` | `true` | `2026-12-31T00:00:01.000Z` |
 | `EnableProcessMonitoring` | `true` | `2026-10-18T00:00:00.000Z` |
