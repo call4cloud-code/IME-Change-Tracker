@@ -1,6 +1,6 @@
 # Intune SideCar Flight Tracker
 
-Last run: `2026-08-09 07:00:06 UTC`
+Last run: `2026-08-10 07:00:07 UTC`
 
 | Area | Total flights | Enabled flights |
 | --- | ---: | ---: |
