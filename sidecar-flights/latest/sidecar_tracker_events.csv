@@ -1,2 +1,2 @@
 Environment,ChangeType,Name,PreviousValue,CurrentValue,PreviousExpiry,CurrentExpiry,Details
-Selfhost,Added enabled,ValidateRolloutTemplate,,true,,2025-10-01T00:00:00.000Z,New flight exists and is enabled.
+PE,Added enabled,EnableExpandedCrashTelemetry,,true,,2026-05-18T00:00:00.000Z,New flight exists and is enabled.
