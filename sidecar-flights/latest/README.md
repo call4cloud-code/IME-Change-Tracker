@@ -1,26 +1,26 @@
 # Intune SideCar Flight Tracker
 
-Last run: `2026-08-11 07:00:06 UTC`
+Last run: `2026-08-12 07:00:08 UTC`
 
 | Area | Total flights | Enabled flights |
 | --- | ---: | ---: |
 | Selfhost | 46 | 44 |
-| PE | 22 | 21 |
+| PE | 23 | 22 |
 
-Selfhost vs PE differences in this run: **24**
+Selfhost vs PE differences in this run: **23**
 
 Flight events since previous snapshot: **1**
 
 | Environment | Added | Added enabled | Enabled | Disabled | Value changed | Expiry changed | Removed |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Selfhost | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
-| PE | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Selfhost | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| PE | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
 
 ## Flight Events Since Previous Snapshot
 
 | Environment | Event | Flight | Previous | Current | Previous expiry | Current expiry |
 | --- | --- | --- | --- | --- | --- | --- |
-| Selfhost | Added enabled | `ValidateRolloutTemplate` |  | `true` |  | `2025-10-01T00:00:00.000Z` |
+| PE | Added enabled | `EnableExpandedCrashTelemetry` |  | `true` |  | `2026-05-18T00:00:00.000Z` |
 
 ## Current Selfhost vs PE Differences
 
@@ -33,7 +33,6 @@ Flight events since previous snapshot: **1**
 | Only in selfhost | `EnableCleanupMsiKeyOnUninstall` | `true` |  |  |
 | Only in selfhost | `EnableComplianceMonitorSimulateMode` | `false` |  |  |
 | Only in selfhost | `EnableComponentManager` | `true` |  |  |
-| Only in selfhost | `EnableExpandedCrashTelemetry` | `true` |  |  |
 | Only in selfhost | `EnableHourlyComplianceScriptCadence` | `true` |  |  |
 | Only in selfhost | `EnableIC3Telemetry` | `true` |  |  |
 | Only in selfhost | `EnableIsAADUserTelemetry` | `true` |  |  |
@@ -109,6 +108,7 @@ Flight events since previous snapshot: **1**
 | `ClearGRSInESP` | `true` | `2026-04-01T00:00:00.000Z` |
 | `CommonSchemaEventsProcessing` | `true` | `2025-08-01T00:00:00.000Z` |
 | `EnableDiskUsageMonitor` | `true` | `2026-10-18T00:00:00.000Z` |
+| `EnableExpandedCrashTelemetry` | `true` | `2026-05-18T00:00:00.000Z` |
 | `EnableGoldenSignals` | `true` | `2025-10-18T00:00:00.000Z` |
 | `EnableIC3Feature` | `true` | `2027-06-01T00:00:00.000Z` |
 | `EnableNotificationWorkloadDispatch` | `true` | `2026-06-01T00:00:00.000Z` |
