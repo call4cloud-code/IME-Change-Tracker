@@ -7,6 +7,7 @@ EnableDiskUsageMonitor,true,2026-10-18T00:00:00.000Z,True,true,2026-10-18T00:00:
 EnableExpandedCrashTelemetry,true,2026-05-18T00:00:00.000Z,True,true,2026-05-18T00:00:00.000Z,True,Same,
 EnableGoldenSignals,true,2025-10-18T00:00:00.000Z,True,true,2025-10-18T00:00:00.000Z,True,Same,
 EnableIC3Feature,true,2027-06-01T00:00:00.000Z,True,true,2027-06-01T00:00:00.000Z,True,Same,
+EnableIsAADUserTelemetry,true,2026-06-01T00:00:00.000Z,True,true,2026-06-01T00:00:00.000Z,True,Same,
 EnableNotificationWorkloadDispatch,true,2026-06-01T00:00:00.000Z,True,true,2026-06-01T00:00:00.000Z,True,Same,
 EnableProcessMonitoring,true,2026-10-18T00:00:00.000Z,True,true,2026-10-18T00:00:00.000Z,True,Same,
 EnableWin32PowerMgmt,true,2025-11-01T00:00:01.000Z,True,true,2025-11-01T00:00:01.000Z,True,Same,
