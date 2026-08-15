@@ -1,13 +1,13 @@
 # Intune SideCar Flight Tracker
 
-Last run: `2026-08-13 07:00:05 UTC`
+Last run: `2026-08-15 07:00:04 UTC`
 
 | Area | Total flights | Enabled flights |
 | --- | ---: | ---: |
 | Selfhost | 46 | 44 |
-| PE | 23 | 22 |
+| PE | 24 | 23 |
 
-Selfhost vs PE differences in this run: **23**
+Selfhost vs PE differences in this run: **22**
 
 No flight events were detected since the previous snapshot.
 
@@ -24,7 +24,6 @@ No flight events were detected since the previous snapshot.
 | Only in selfhost | `EnableComponentManager` | `true` |  |  |
 | Only in selfhost | `EnableHourlyComplianceScriptCadence` | `true` |  |  |
 | Only in selfhost | `EnableIC3Telemetry` | `true` |  |  |
-| Only in selfhost | `EnableIsAADUserTelemetry` | `true` |  |  |
 | Only in selfhost | `EnableNotificationDedupeCache` | `true` |  |  |
 | Only in selfhost | `EnableOneDSProxyFeature` | `true` |  |  |
 | Only in selfhost | `EnablePutWithTupleResult` | `true` |  |  |
@@ -100,6 +99,7 @@ No flight events were detected since the previous snapshot.
 | `EnableExpandedCrashTelemetry` | `true` | `2026-05-18T00:00:00.000Z` |
 | `EnableGoldenSignals` | `true` | `2025-10-18T00:00:00.000Z` |
 | `EnableIC3Feature` | `true` | `2027-06-01T00:00:00.000Z` |
+| `EnableIsAADUserTelemetry` | `true` | `2026-06-01T00:00:00.000Z` |
 | `EnableNotificationWorkloadDispatch` | `true` | `2026-06-01T00:00:00.000Z` |
 | `EnableProcessMonitoring` | `true` | `2026-10-18T00:00:00.000Z` |
 | `EnableWin32PowerMgmt` | `true` | `2025-11-01T00:00:01.000Z` |
