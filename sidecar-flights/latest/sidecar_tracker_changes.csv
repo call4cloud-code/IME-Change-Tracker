@@ -8,7 +8,6 @@ EnableComplianceMonitorSimulateMode,false,2026-11-07T00:00:00Z,False,,,False,Onl
 EnableComponentManager,true,2026-10-18T00:00:00.000Z,True,,,False,Only in selfhost,
 EnableHourlyComplianceScriptCadence,true,2026-11-07T00:00:00Z,True,,,False,Only in selfhost,
 EnableIC3Telemetry,true,2026-06-01T00:00:00.000Z,True,,,False,Only in selfhost,
-EnableIsAADUserTelemetry,true,2026-06-01T00:00:00.000Z,True,,,False,Only in selfhost,
 EnableNotificationDedupeCache,true,2026-06-01T00:00:00.000Z,True,,,False,Only in selfhost,
 EnableOneDSProxyFeature,true,2026-12-31T00:00:01.000Z,True,,,False,Only in selfhost,
 EnablePutWithTupleResult,true,2025-08-18T00:00:00.000Z,True,,,False,Only in selfhost,
