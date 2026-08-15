@@ -15,7 +15,7 @@ EnableGoldenSignals,true,2025-10-18T00:00:00.000Z,True,true,2025-10-18T00:00:00.
 EnableHourlyComplianceScriptCadence,true,2026-11-07T00:00:00Z,True,,,False,Only in selfhost,
 EnableIC3Feature,true,2027-06-01T00:00:00.000Z,True,true,2027-06-01T00:00:00.000Z,True,Same,
 EnableIC3Telemetry,true,2026-06-01T00:00:00.000Z,True,,,False,Only in selfhost,
-EnableIsAADUserTelemetry,true,2026-06-01T00:00:00.000Z,True,,,False,Only in selfhost,
+EnableIsAADUserTelemetry,true,2026-06-01T00:00:00.000Z,True,true,2026-06-01T00:00:00.000Z,True,Same,
 EnableNotificationDedupeCache,true,2026-06-01T00:00:00.000Z,True,,,False,Only in selfhost,
 EnableNotificationWorkloadDispatch,true,2026-06-01T00:00:00.000Z,True,true,2026-06-01T00:00:00.000Z,True,Same,
 EnableOneDSProxyFeature,true,2026-12-31T00:00:01.000Z,True,,,False,Only in selfhost,
