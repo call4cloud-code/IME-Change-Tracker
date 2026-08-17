@@ -17,7 +17,7 @@ No full managed IL or native-code decompilation was used. Findings below are bas
 
 A second verification pass independently re-extracted both MSI cabinets, re-counted and re-hashed every payload file, re-ran managed TypeDef/MethodDef and new-name comparisons across all changed managed binaries, rechecked the new native exports/imports, extracted the unchanged nested WinRE CAB, and compared its AMD64 trust libraries with the new root copies. That pass also widened the string-diff sweep across all 77 changed shared files. The second pass produced three material refinements reflected below: explicit Bleu/BLP support was expanded and deserved its own section; the App In Use ImeUI handler names were tightened to the actual metadata; and the new root WinDC trust DLLs were confirmed to be newer, distinct builds rather than byte-for-byte copies of the WinRE versions.
 
-This is an independent reverse-engineering report. Presence of code does not mean a feature is active for every tenant.
+This is an independent investigation report. Presence of code does not mean a feature is active for every tenant.
 
 ## Executive summary
 
