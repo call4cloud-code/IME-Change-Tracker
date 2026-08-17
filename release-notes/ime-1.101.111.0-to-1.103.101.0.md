@@ -11,7 +11,7 @@ This document describes the changes found between these Intune Management Extens
 
 The findings are based on MSI table comparison, extracted CAB payloads, managed assembly metadata, portable string differences, and method-level IL hashes. The comparison produced 104 file changes, 287 MSI table changes, two CustomAction table changes, three install-sequence changes, and 15,448 managed method-diff rows.
 
-This is an independent reverse-engineering report. A method or feature being present in the client does not prove that Microsoft has enabled it for every tenant. Several paths are controlled through ECS, session settings, or explicit flight values.
+This is an independent investigation report. A method or feature being present in the client does not prove that Microsoft has enabled it for every tenant. Several paths are controlled through ECS, session settings, or explicit flight values.
 
 ## Executive summary
 
