@@ -11,7 +11,7 @@ This document describes the changes found between these Intune Management Extens
 
 Evidence sources: MSI table comparison (`msiinfo`/`msidump`), extracted CAB payloads, ECMA-335 metadata table row counts read from each assembly's CLR header, ASCII **and UTF-16** string-heap diffing (managed string literals live in the UTF-16 `#US` heap — an ASCII-only pass misses them), direct reading of the shipped `.mof`/`.json`/`.config` text files, the extracted contents of `Microsoft.Intune.WinRe.Bundle.cab`, and the actual `IntuneWindowsAgentCustomActions` binary stream (SfxCA archive) unpacked from both MSIs. No decompiler was available, so IL-level logic is not shown; findings are structural but were cross-checked across two independently produced extractions of the same packages.
 
-This is an independent reverse-engineering report. Presence of code does not mean a feature is active for every tenant.
+This is an independent investigation report. Presence of code does not mean a feature is active for every tenant.
 
 ## Executive summary
 
