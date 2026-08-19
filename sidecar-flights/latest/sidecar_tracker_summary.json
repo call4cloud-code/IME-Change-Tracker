@@ -1,9 +1,20 @@
 {
   "SchemaVersion": "1",
-  "CapturedUtc": "2026-08-18T07:00:08.1070056Z",
+  "CapturedUtc": "2026-08-19T07:00:08.8561513Z",
   "SelfhostUrl": "https://ecs.office.com/config/v1/Intune/1.0.0.0?agents=CLI_SideCar\u0026environment=selfhost\u0026tenantId=36a3a83e-4639-48b8-a52b-7fa813e3583f\u0026clientId=0fc37f70-ffba-48ae-b078-1b86e3da1953",
   "PeUrl": "https://ecs.office.com/config/v1/Intune/1.0.0.0?agents=CLI_SideCar\u0026environment=pe\u0026tenantId=36a3a83e-4639-48b8-a52b-7fa813e3583f\u0026clientId=0fc37f70-ffba-48ae-b078-1b86e3da1953",
   "Flights": [
+    {
+      "Name": "4CF8C6F4-C96E-4454-A6D0-196EAAC3E496",
+      "SelfhostValue": "true",
+      "SelfhostExpiry": "2026-06-19T00:00:00.0402432Z",
+      "SelfhostEnabled": true,
+      "PeValue": "",
+      "PeExpiry": "",
+      "PeEnabled": false,
+      "Status": "Only in selfhost",
+      "DifferentFields": ""
+    },
     {
       "Name": "APv2EnableAutoReconnectOnRestart",
       "SelfhostValue": "true",
