@@ -1,6 +1,6 @@
 {
   "SchemaVersion": "1",
-  "CapturedUtc": "2026-08-20T07:00:04.5124132Z",
+  "CapturedUtc": "2026-08-21T07:00:08.1282583Z",
   "SelfhostUrl": "https://ecs.office.com/config/v1/Intune/1.0.0.0?agents=CLI_SideCar\u0026environment=selfhost\u0026tenantId=36a3a83e-4639-48b8-a52b-7fa813e3583f\u0026clientId=0fc37f70-ffba-48ae-b078-1b86e3da1953",
   "PeUrl": "https://ecs.office.com/config/v1/Intune/1.0.0.0?agents=CLI_SideCar\u0026environment=pe\u0026tenantId=36a3a83e-4639-48b8-a52b-7fa813e3583f\u0026clientId=0fc37f70-ffba-48ae-b078-1b86e3da1953",
   "Flights": [
@@ -148,6 +148,17 @@
       "DifferentFields": ""
     },
     {
+      "Name": "EnableEventBasedComplianceEventLog",
+      "SelfhostValue": "true",
+      "SelfhostExpiry": "2026-12-01T00:00:00.000Z",
+      "SelfhostEnabled": true,
+      "PeValue": "",
+      "PeExpiry": "",
+      "PeEnabled": false,
+      "Status": "Only in selfhost",
+      "DifferentFields": ""
+    },
+    {
       "Name": "EnableExpandedCrashTelemetry",
       "SelfhostValue": "true",
       "SelfhostExpiry": "2026-05-18T00:00:00.000Z",
@@ -189,6 +200,17 @@
       "PeExpiry": "2027-06-01T00:00:00.000Z",
       "PeEnabled": true,
       "Status": "Same",
+      "DifferentFields": ""
+    },
+    {
+      "Name": "EnableIC3Probe",
+      "SelfhostValue": "true",
+      "SelfhostExpiry": "2027-06-01T00:00:00.000Z",
+      "SelfhostEnabled": true,
+      "PeValue": "",
+      "PeExpiry": "",
+      "PeEnabled": false,
+      "Status": "Only in selfhost",
       "DifferentFields": ""
     },
     {
@@ -273,10 +295,10 @@
       "SelfhostValue": "true",
       "SelfhostExpiry": "2026-11-07T00:00:00Z",
       "SelfhostEnabled": true,
-      "PeValue": "",
-      "PeExpiry": "",
-      "PeEnabled": false,
-      "Status": "Only in selfhost",
+      "PeValue": "true",
+      "PeExpiry": "2026-11-07T00:00:00Z",
+      "PeEnabled": true,
+      "Status": "Same",
       "DifferentFields": ""
     },
     {
