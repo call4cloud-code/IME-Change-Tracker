@@ -10,6 +10,7 @@ EnableIC3Feature,true,2027-06-01T00:00:00.000Z,True,true,2027-06-01T00:00:00.000
 EnableIsAADUserTelemetry,true,2026-06-01T00:00:00.000Z,True,true,2026-06-01T00:00:00.000Z,True,Same,
 EnableNotificationWorkloadDispatch,true,2026-06-01T00:00:00.000Z,True,true,2026-06-01T00:00:00.000Z,True,Same,
 EnableProcessMonitoring,true,2026-10-18T00:00:00.000Z,True,true,2026-10-18T00:00:00.000Z,True,Same,
+EnableRealTimeComplianceAccount,true,2026-11-07T00:00:00Z,True,true,2026-11-07T00:00:00Z,True,Same,
 EnableWin32PowerMgmt,true,2025-11-01T00:00:01.000Z,True,true,2025-11-01T00:00:01.000Z,True,Same,
 ETWEventsAggregation,true,2025-06-01T00:00:00.000Z,True,true,2025-06-01T00:00:00.000Z,True,Same,
 FileStreamForDetectionScripts,true,2025-05-01T00:00:01.000Z,True,true,2025-05-01T00:00:01.000Z,True,Same,
