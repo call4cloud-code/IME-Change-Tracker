@@ -11,6 +11,7 @@ EmitSidecarMsiInstallerEvent,true,2026-12-18T00:00:00.000Z,True,,,False,Only in 
 EnableCleanupMsiKeyOnUninstall,true,2026-12-18T00:00:00.000Z,True,,,False,Only in selfhost,
 EnableComplianceMonitorSimulateMode,false,2026-11-07T00:00:00Z,False,,,False,Only in selfhost,
 EnableComponentManager,true,2026-10-18T00:00:00.000Z,True,,,False,Only in selfhost,
+EnableCpuUsageTelemetry,true,2027-10-21T00:00:00.000Z,True,,,False,Only in selfhost,
 EnableDiskUsageMonitor,true,2026-10-18T00:00:00.000Z,True,true,2026-10-18T00:00:00.000Z,True,Same,
 EnableEventBasedComplianceEventLog,true,2026-12-01T00:00:00.000Z,True,,,False,Only in selfhost,
 EnableExpandedCrashTelemetry,true,2026-05-18T00:00:00.000Z,True,true,2026-05-18T00:00:00.000Z,True,Same,
