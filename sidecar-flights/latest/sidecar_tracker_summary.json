@@ -1,6 +1,6 @@
 {
   "SchemaVersion": "1",
-  "CapturedUtc": "2026-08-21T07:00:08.1282583Z",
+  "CapturedUtc": "2026-08-22T07:00:03.2000365Z",
   "SelfhostUrl": "https://ecs.office.com/config/v1/Intune/1.0.0.0?agents=CLI_SideCar\u0026environment=selfhost\u0026tenantId=36a3a83e-4639-48b8-a52b-7fa813e3583f\u0026clientId=0fc37f70-ffba-48ae-b078-1b86e3da1953",
   "PeUrl": "https://ecs.office.com/config/v1/Intune/1.0.0.0?agents=CLI_SideCar\u0026environment=pe\u0026tenantId=36a3a83e-4639-48b8-a52b-7fa813e3583f\u0026clientId=0fc37f70-ffba-48ae-b078-1b86e3da1953",
   "Flights": [
@@ -129,6 +129,17 @@
       "Name": "EnableComponentManager",
       "SelfhostValue": "true",
       "SelfhostExpiry": "2026-10-18T00:00:00.000Z",
+      "SelfhostEnabled": true,
+      "PeValue": "",
+      "PeExpiry": "",
+      "PeEnabled": false,
+      "Status": "Only in selfhost",
+      "DifferentFields": ""
+    },
+    {
+      "Name": "EnableCpuUsageTelemetry",
+      "SelfhostValue": "true",
+      "SelfhostExpiry": "2027-10-21T00:00:00.000Z",
       "SelfhostEnabled": true,
       "PeValue": "",
       "PeExpiry": "",
