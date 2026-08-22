@@ -1,28 +1,26 @@
 # Intune SideCar Flight Tracker
 
-Last run: `2026-08-21 07:00:08 UTC`
+Last run: `2026-08-22 07:00:03 UTC`
 
 | Area | Total flights | Enabled flights |
 | --- | ---: | ---: |
-| Selfhost | 49 | 47 |
+| Selfhost | 50 | 48 |
 | PE | 25 | 24 |
 
-Selfhost vs PE differences in this run: **24**
+Selfhost vs PE differences in this run: **25**
 
-Flight events since previous snapshot: **3**
+Flight events since previous snapshot: **1**
 
 | Environment | Added | Added enabled | Enabled | Disabled | Value changed | Expiry changed | Removed |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Selfhost | 0 | 2 | 0 | 0 | 0 | 0 | 0 |
-| PE | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
+| Selfhost | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
+| PE | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
 ## Flight Events Since Previous Snapshot
 
 | Environment | Event | Flight | Previous | Current | Previous expiry | Current expiry |
 | --- | --- | --- | --- | --- | --- | --- |
-| PE | Added enabled | `EnableRealTimeComplianceAccount` |  | `true` |  | `2026-11-07T00:00:00Z` |
-| Selfhost | Added enabled | `EnableEventBasedComplianceEventLog` |  | `true` |  | `2026-12-01T00:00:00.000Z` |
-| Selfhost | Added enabled | `EnableIC3Probe` |  | `true` |  | `2027-06-01T00:00:00.000Z` |
+| Selfhost | Added enabled | `EnableCpuUsageTelemetry` |  | `true` |  | `2027-10-21T00:00:00.000Z` |
 
 ## Current Selfhost vs PE Differences
 
@@ -36,6 +34,7 @@ Flight events since previous snapshot: **3**
 | Only in selfhost | `EnableCleanupMsiKeyOnUninstall` | `true` |  |  |
 | Only in selfhost | `EnableComplianceMonitorSimulateMode` | `false` |  |  |
 | Only in selfhost | `EnableComponentManager` | `true` |  |  |
+| Only in selfhost | `EnableCpuUsageTelemetry` | `true` |  |  |
 | Only in selfhost | `EnableEventBasedComplianceEventLog` | `true` |  |  |
 | Only in selfhost | `EnableHourlyComplianceScriptCadence` | `true` |  |  |
 | Only in selfhost | `EnableIC3Probe` | `true` |  |  |
@@ -68,6 +67,7 @@ Flight events since previous snapshot: **3**
 | `EmitSidecarMsiInstallerEvent` | `true` | `2026-12-18T00:00:00.000Z` |
 | `EnableCleanupMsiKeyOnUninstall` | `true` | `2026-12-18T00:00:00.000Z` |
 | `EnableComponentManager` | `true` | `2026-10-18T00:00:00.000Z` |
+| `EnableCpuUsageTelemetry` | `true` | `2027-10-21T00:00:00.000Z` |
 | `EnableDiskUsageMonitor` | `true` | `2026-10-18T00:00:00.000Z` |
 | `EnableEventBasedComplianceEventLog` | `true` | `2026-12-01T00:00:00.000Z` |
 | `EnableExpandedCrashTelemetry` | `true` | `2026-05-18T00:00:00.000Z` |
