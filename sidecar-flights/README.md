@@ -1,6 +1,6 @@
 # Intune SideCar Flight Tracker
 
-Last run: `2026-08-22 07:00:03 UTC`
+Last run: `2026-08-23 07:00:06 UTC`
 
 | Area | Total flights | Enabled flights |
 | --- | ---: | ---: |
@@ -9,18 +9,7 @@ Last run: `2026-08-22 07:00:03 UTC`
 
 Selfhost vs PE differences in this run: **25**
 
-Flight events since previous snapshot: **1**
-
-| Environment | Added | Added enabled | Enabled | Disabled | Value changed | Expiry changed | Removed |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Selfhost | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
-| PE | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-
-## Flight Events Since Previous Snapshot
-
-| Environment | Event | Flight | Previous | Current | Previous expiry | Current expiry |
-| --- | --- | --- | --- | --- | --- | --- |
-| Selfhost | Added enabled | `EnableCpuUsageTelemetry` |  | `true` |  | `2027-10-21T00:00:00.000Z` |
+No flight events were detected since the previous snapshot.
 
 ## Current Selfhost vs PE Differences
 
