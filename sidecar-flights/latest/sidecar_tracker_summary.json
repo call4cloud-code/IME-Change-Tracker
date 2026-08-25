@@ -1,6 +1,6 @@
 {
   "SchemaVersion": "1",
-  "CapturedUtc": "2026-08-24T07:00:04.9124751Z",
+  "CapturedUtc": "2026-08-25T07:00:09.0944644Z",
   "SelfhostUrl": "https://ecs.office.com/config/v1/Intune/1.0.0.0?agents=CLI_SideCar\u0026environment=selfhost\u0026tenantId=36a3a83e-4639-48b8-a52b-7fa813e3583f\u0026clientId=0fc37f70-ffba-48ae-b078-1b86e3da1953",
   "PeUrl": "https://ecs.office.com/config/v1/Intune/1.0.0.0?agents=CLI_SideCar\u0026environment=pe\u0026tenantId=36a3a83e-4639-48b8-a52b-7fa813e3583f\u0026clientId=0fc37f70-ffba-48ae-b078-1b86e3da1953",
   "Flights": [
