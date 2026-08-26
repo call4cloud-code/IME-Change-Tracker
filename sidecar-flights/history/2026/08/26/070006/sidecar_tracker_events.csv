@@ -1,0 +1,2 @@
+Environment,ChangeType,Name,PreviousValue,CurrentValue,PreviousExpiry,CurrentExpiry,Details
+PE,Added enabled,EnableComponentManager,,true,,2026-10-18T00:00:00.000Z,New flight exists and is enabled.
