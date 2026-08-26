@@ -1,15 +1,26 @@
 # Intune SideCar Flight Tracker
 
-Last run: `2026-08-25 07:00:09 UTC`
+Last run: `2026-08-26 07:00:06 UTC`
 
 | Area | Total flights | Enabled flights |
 | --- | ---: | ---: |
 | Selfhost | 50 | 48 |
-| PE | 25 | 24 |
+| PE | 26 | 25 |
 
-Selfhost vs PE differences in this run: **25**
+Selfhost vs PE differences in this run: **24**
 
-No flight events were detected since the previous snapshot.
+Flight events since previous snapshot: **1**
+
+| Environment | Added | Added enabled | Enabled | Disabled | Value changed | Expiry changed | Removed |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Selfhost | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| PE | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
+
+## Flight Events Since Previous Snapshot
+
+| Environment | Event | Flight | Previous | Current | Previous expiry | Current expiry |
+| --- | --- | --- | --- | --- | --- | --- |
+| PE | Added enabled | `EnableComponentManager` |  | `true` |  | `2026-10-18T00:00:00.000Z` |
 
 ## Current Selfhost vs PE Differences
 
@@ -22,7 +33,6 @@ No flight events were detected since the previous snapshot.
 | Only in selfhost | `EmitSidecarMsiInstallerEvent` | `true` |  |  |
 | Only in selfhost | `EnableCleanupMsiKeyOnUninstall` | `true` |  |  |
 | Only in selfhost | `EnableComplianceMonitorSimulateMode` | `false` |  |  |
-| Only in selfhost | `EnableComponentManager` | `true` |  |  |
 | Only in selfhost | `EnableCpuUsageTelemetry` | `true` |  |  |
 | Only in selfhost | `EnableEventBasedComplianceEventLog` | `true` |  |  |
 | Only in selfhost | `EnableHourlyComplianceScriptCadence` | `true` |  |  |
@@ -102,6 +112,7 @@ No flight events were detected since the previous snapshot.
 | `APv2UseStandardUserProviderNative` | `true` | `2026-06-20T00:00:00.0402432Z` |
 | `ClearGRSInESP` | `true` | `2026-04-01T00:00:00.000Z` |
 | `CommonSchemaEventsProcessing` | `true` | `2025-08-01T00:00:00.000Z` |
+| `EnableComponentManager` | `true` | `2026-10-18T00:00:00.000Z` |
 | `EnableDiskUsageMonitor` | `true` | `2026-10-18T00:00:00.000Z` |
 | `EnableExpandedCrashTelemetry` | `true` | `2026-05-18T00:00:00.000Z` |
 | `EnableGoldenSignals` | `true` | `2025-10-18T00:00:00.000Z` |
