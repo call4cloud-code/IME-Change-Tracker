@@ -9,7 +9,7 @@ CommonSchemaEventsProcessing,true,2025-08-01T00:00:00.000Z,True,true,2025-08-01T
 dnsErrorRetryDelay,true,2025-09-01T00:00:00.000Z,True,,,False,Only in selfhost,
 EmitSidecarMsiInstallerEvent,true,2026-12-18T00:00:00.000Z,True,,,False,Only in selfhost,
 EnableCleanupMsiKeyOnUninstall,true,2026-12-18T00:00:00.000Z,True,,,False,Only in selfhost,
-EnableComponentManager,true,2026-10-18T00:00:00.000Z,True,,,False,Only in selfhost,
+EnableComponentManager,true,2026-10-18T00:00:00.000Z,True,true,2026-10-18T00:00:00.000Z,True,Same,
 EnableCpuUsageTelemetry,true,2027-10-21T00:00:00.000Z,True,,,False,Only in selfhost,
 EnableDiskUsageMonitor,true,2026-10-18T00:00:00.000Z,True,true,2026-10-18T00:00:00.000Z,True,Same,
 EnableEventBasedComplianceEventLog,true,2026-12-01T00:00:00.000Z,True,,,False,Only in selfhost,
