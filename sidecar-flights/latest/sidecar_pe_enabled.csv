@@ -3,6 +3,7 @@ APv2EnableAutoReconnectOnRestart,true,2027-03-17T00:00:00.0402432Z,True,true,202
 APv2UseStandardUserProviderNative,true,2026-06-20T00:00:00.0402432Z,True,true,2026-06-20T00:00:00.0402432Z,True,Same,
 ClearGRSInESP,true,2026-04-01T00:00:00.000Z,True,true,2026-04-01T00:00:00.000Z,True,Same,
 CommonSchemaEventsProcessing,true,2025-08-01T00:00:00.000Z,True,true,2025-08-01T00:00:00.000Z,True,Same,
+EnableComponentManager,true,2026-10-18T00:00:00.000Z,True,true,2026-10-18T00:00:00.000Z,True,Same,
 EnableDiskUsageMonitor,true,2026-10-18T00:00:00.000Z,True,true,2026-10-18T00:00:00.000Z,True,Same,
 EnableExpandedCrashTelemetry,true,2026-05-18T00:00:00.000Z,True,true,2026-05-18T00:00:00.000Z,True,Same,
 EnableGoldenSignals,true,2025-10-18T00:00:00.000Z,True,true,2025-10-18T00:00:00.000Z,True,Same,
