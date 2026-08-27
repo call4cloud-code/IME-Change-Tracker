@@ -1,13 +1,13 @@
 # Intune SideCar Flight Tracker
 
-Last run: `2026-08-26 07:00:06 UTC`
+Last run: `2026-08-27 07:00:05 UTC`
 
 | Area | Total flights | Enabled flights |
 | --- | ---: | ---: |
 | Selfhost | 50 | 48 |
-| PE | 26 | 25 |
+| PE | 27 | 26 |
 
-Selfhost vs PE differences in this run: **24**
+Selfhost vs PE differences in this run: **23**
 
 Flight events since previous snapshot: **1**
 
@@ -20,13 +20,12 @@ Flight events since previous snapshot: **1**
 
 | Environment | Event | Flight | Previous | Current | Previous expiry | Current expiry |
 | --- | --- | --- | --- | --- | --- | --- |
-| PE | Added enabled | `EnableComponentManager` |  | `true` |  | `2026-10-18T00:00:00.000Z` |
+| PE | Added enabled | `4CF8C6F4-C96E-4454-A6D0-196EAAC3E496` |  | `true` |  | `2026-06-19T00:00:00.0402432Z` |
 
 ## Current Selfhost vs PE Differences
 
 | Status | Flight | Selfhost | PE | Different fields |
 | --- | --- | --- | --- | --- |
-| Only in selfhost | `4CF8C6F4-C96E-4454-A6D0-196EAAC3E496` | `true` |  |  |
 | Only in selfhost | `APv2ScriptNullRefFix` | `true` |  |  |
 | Only in selfhost | `CollectAppInvForNonEmptyGuids` | `true` |  |  |
 | Only in selfhost | `dnsErrorRetryDelay` | `true` |  |  |
@@ -108,6 +107,7 @@ Flight events since previous snapshot: **1**
 
 | Flight | Value | Expiry |
 | --- | --- | --- |
+| `4CF8C6F4-C96E-4454-A6D0-196EAAC3E496` | `true` | `2026-06-19T00:00:00.0402432Z` |
 | `APv2EnableAutoReconnectOnRestart` | `true` | `2027-03-17T00:00:00.0402432Z` |
 | `APv2UseStandardUserProviderNative` | `true` | `2026-06-20T00:00:00.0402432Z` |
 | `ClearGRSInESP` | `true` | `2026-04-01T00:00:00.000Z` |
