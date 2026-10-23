@@ -2,6 +2,8 @@
 
 ## Scope
 
+Evidence filenames and line references identify analysis artifacts retained locally. Only this report is published in this repository; the MSI packages, extracted binaries, decompiled files and analysis datasets are not included.
+
 This report compares fresh downloads of the two Intune Management Extension endpoints on **23 October 2026**:
 
 | Package | Download endpoint | ProductVersion |
@@ -9,7 +11,7 @@ This report compares fresh downloads of the two Intune Management Extension endp
 | Previous package / primary | [imeswdb-afd-primary](https://imeswdb-afd-primary.manage.microsoft.com/IntuneWindowsAgent.msi) | `1.106.106.0` |
 | New package / secondary | [imeswdb-afd-secondary](https://imeswdb-afd-secondary.manage.microsoft.com/IntuneWindowsAgent.msi) | `1.108.101.0` |
 
-Both downloads returned HTTP 200. The exact UTC acquisition times and URLs are preserved in [downloads.json](downloads.json). These endpoints are mutable; this report describes the downloaded hashes below, not every future response from those URLs. Secondary served the numerically newer build during this acquisition. That observation does not establish a general promotion order for the endpoint names.
+Both downloads returned HTTP 200. The exact UTC acquisition times and URLs are preserved in `downloads.json`. These endpoints are mutable; this report describes the downloaded hashes below, not every future response from those URLs. Secondary served the numerically newer build during this acquisition. That observation does not establish a general promotion order for the endpoint names.
 
 This comparison continues the existing [IME Change Tracker release notes](https://github.com/call4cloud-code/IME-Change-Tracker/tree/main/release-notes), specifically [1.106.102.0 to 1.106.106.0](https://github.com/call4cloud-code/IME-Change-Tracker/blob/main/release-notes/ime-1.106.102.0-to-1.106.106.0.md). The primary MSI is byte-identical to the `1.106.106.0` MSI recorded there. No intermediate `1.107` package was supplied or reconstructed: changes here are the cumulative difference between these two endpoints.
 
@@ -33,7 +35,7 @@ The clearest changes are:
 8. **IC3 token acquisition gains bounded retries for selected outcomes, and Trouter moves to 1.2.26.0.** Null results, successful results with empty tokens, and exceptions can be retried; explicit unsuccessful results are not. Trouter adds short-session reconnect backoff and more coordinated shutdown/lifecycle handling.
 9. **Component CAB signature checks become stricter.** The shared verifier now requires successful Authenticode and Microsoft-root results plus consistent signer identity matching Microsoft Corporation. Revocation-unavailable exceptions formerly accepted in this path are removed. Download/signature telemetry gains component-version correlation.
 10. **WinRE gains a substantial PITR orchestration path and transactional bundle updates.** It can inventory restore points, poll for a bound command, require an accepted ACK, revalidate and invoke recovery. Bundle installation changes from individual overwrites to staged directory replacement with rollback/recovery. These are code capabilities, not proof of tenant activation or a completed restore.
-11. **The native policy/trust stack has changed executable bytes and interfaces.** DynPin adds crypto/flight-provider exports; nested WinRE trust libraries also change. Native function control flow was not reconstructed because IDA access failed.
+11. **The native policy/trust stack has changed executable bytes and interfaces.** DynPin adds crypto/flight-provider exports; nested WinRE trust libraries also change. Native function control flow was not reconstructed because native IDA analysis did not complete.
 12. **Rebuilds are separated from behavior.** AgentExecutor, ClientCertCheck, ImeUI and several plugins/libraries change binary identity without a demonstrated new managed method path. The outer file inventory remains 154 MSI File rows, with no additions or removals.
 
 ## Package identity and extraction
@@ -55,7 +57,7 @@ The clearest changes are:
 
 The CAB contains duplicate file extents, defined by the CFFILE folder offset and size. All 154 authored entries were recovered, every extracted size matches its MSI FileSize, all shared-extent aliases have matching hashes, and all 23 MSI-authored `MsiFileHash` rows validate in each package. The **108 changed / 46 identical** count uses all MSI target paths; it intentionally includes the separate installed copies of shared content. It is not a count of distinct code changes or unique CAB file extents.
 
-Package metadata and signatures: [primary/package.json](primary/package.json), [secondary/package.json](secondary/package.json). Extraction checks: [primary/extraction-validation.json](primary/extraction-validation.json), [secondary/extraction-validation.json](secondary/extraction-validation.json). Full file comparison: [payload-diff.json](payload-diff.json).
+Package metadata and signatures: `primary/package.json`, `secondary/package.json`. Extraction checks: `primary/extraction-validation.json`, `secondary/extraction-validation.json`. Full file comparison: `payload-diff.json`.
 
 ### Largest payload-size changes
 
@@ -118,7 +120,7 @@ The implementation gains monotonic `Stopwatch` due timestamps, separate last-att
 
 **Likely consequence:** the client can evaluate different compliance settings at different costs/cadences and reduce timer drift or redundant evaluation. **Not established:** the flight or any particular fast/slow server configuration is enabled for a given tenant.
 
-Evidence: `ComplianceMonitor.{LaunchAsync,StartPollingTimer,RunCycleAsync,GetEffectivePollingTiers,GetEffectiveTierPollIntervals,GetDuePollingSettings,ReconcileTierInterval}`, `ComplianceMonitorStore`, and the [ServiceContracts difference](decompiled-diffs/Microsoft.Management.Services.IntuneWindowsAgent.AgentCommon.ServiceContracts.decompiled.diff).
+Evidence: `ComplianceMonitor.{LaunchAsync,StartPollingTimer,RunCycleAsync,GetEffectivePollingTiers,GetEffectiveTierPollIntervals,GetDuePollingSettings,ReconcileTierInterval}`, `ComplianceMonitorStore`, and the `decompiled-diffs/Microsoft.Management.Services.IntuneWindowsAgent.AgentCommon.ServiceContracts.decompiled.diff`.
 
 ## 2. Compliance start/stop and event processing receive reliability work
 
@@ -141,7 +143,7 @@ If health is known and unchanged for both providers, no settings remain to enque
 
 **Likely consequence:** broad WSC notifications need not cause both settings to be evaluated when neither provider's health changed. This is a client-side observation filter, not a change to the server's compliance verdict.
 
-Evidence: `ComplianceMonitor.{LaunchAsync,Start,StopCore,ScheduleStopCompletion}`, `ComplianceEventPublisher.{PublishAsync,ReadWindowsSecurityCenterHealth}`, `WindowsSecurityCenterHealthReader.TryReadHealth`; [main-agent C# difference](decompiled-diffs/Microsoft.Management.Services.IntuneWindowsAgent.decompiled.diff).
+Evidence: `ComplianceMonitor.{LaunchAsync,Start,StopCore,ScheduleStopCompletion}`, `ComplianceEventPublisher.{PublishAsync,ReadWindowsSecurityCenterHealth}`, `WindowsSecurityCenterHealthReader.TryReadHealth`; `decompiled-diffs/Microsoft.Management.Services.IntuneWindowsAgent.decompiled.diff`.
 
 ## 3. Compliance observation failures stop looking like clean no-drift results
 
@@ -230,7 +232,7 @@ flowchart LR
 
 `ForcedRebootTestException` gains `SuppressDisposalSideEffects`; `ITestExceptionHandler` lets `SideCarV3AppProcessor.ProcessSubgraph` tell `ReportingManager` when a test exception requests suppression. `ReportingManager.Dispose` skips its usual commit only in that explicitly marked test case. This lets a forced-reboot test avoid a disposal-time commit masking the persistence window. The presence of those test hooks does not mean a normal device disables status persistence.
 
-Evidence: [Win32AppPlugIn C# difference](decompiled-diffs/Microsoft.Management.Clients.IntuneManagementExtension.Win32AppPlugIn.decompiled.diff), especially `DetectApp`, `InvokeCore`, `SetOperationalStatesPreExecution`, `CommitChanges`, `HandleTestException` and `Dispose`.
+Evidence: `decompiled-diffs/Microsoft.Management.Clients.IntuneManagementExtension.Win32AppPlugIn.decompiled.diff`, especially `DetectApp`, `InvokeCore`, `SetOperationalStatesPreExecution`, `CommitChanges`, `HandleTestException` and `Dispose`.
 
 ## 6. Certificate-pinning failure snapshots gain safe persistence and upload semantics
 
@@ -267,7 +269,7 @@ For this report it calls the new `SendWebRequest(..., throwOnFailure: true)` ove
 
 The TLS enforcement model documented in the previous `1.106.106.0` report remains the baseline. These collection/upload additions should not be misreported as newly removing the earlier Disabled/Audit/Enforce model a second time.
 
-Evidence: `RegistryHelper.{SaveLatestWindowsCertPinningFailed,DeleteUploadedWindowsCertPinningFailed,CreateWindowsCertPinningFailedMutex,WithWindowsCertPinningFailedRegistryLock}`, `IntuneController.{Put,LogOutboundData}`, `EmsServiceBase.SendWebRequestCoreAsync`; [AgentCommon C# difference](decompiled-diffs/Microsoft.Management.Services.IntuneWindowsAgent.AgentCommon.decompiled.diff).
+Evidence: `RegistryHelper.{SaveLatestWindowsCertPinningFailed,DeleteUploadedWindowsCertPinningFailed,CreateWindowsCertPinningFailedMutex,WithWindowsCertPinningFailedRegistryLock}`, `IntuneController.{Put,LogOutboundData}`, `EmsServiceBase.SendWebRequestCoreAsync`; `decompiled-diffs/Microsoft.Management.Services.IntuneWindowsAgent.AgentCommon.decompiled.diff`.
 
 ## 7. Unattended Windows Remote Help uses one device-context request
 
@@ -281,7 +283,7 @@ The map parameter remains non-null validated, so this is not removal of the publ
 
 **Interpretation:** the implementation treats unattended setup as a device-level action rather than repeating it for signed-in users. Feature flight, notification, gateway response and Remote Help prerequisites still determine whether any session is actually established.
 
-Evidence: `WindowsUnattendedHandler.{ProcessWindowsRemoteHelpUnattended,WindowsUnattendedRequestPayload,WindowsUnattendedReportStatus}` in the [AgentCommon difference](decompiled-diffs/Microsoft.Management.Services.IntuneWindowsAgent.AgentCommon.decompiled.diff).
+Evidence: `WindowsUnattendedHandler.{ProcessWindowsRemoteHelpUnattended,WindowsUnattendedRequestPayload,WindowsUnattendedReportStatus}` in the `decompiled-diffs/Microsoft.Management.Services.IntuneWindowsAgent.AgentCommon.decompiled.diff`.
 
 
 
@@ -289,10 +291,10 @@ Evidence key for sections 8–11 (line references refer to these saved decompila
 
 | Key | Primary / secondary evidence |
 | --- | --- |
-| H0 / H1 | [Primary ClientHealthEval](review-health/primary/ClientHealthEval.exe.decompiled.cs) / [secondary](review-health/secondary/ClientHealthEval.exe.decompiled.cs) |
-| D0 / D1 | [Primary DataSensor](review-health/primary/Microsoft.Management.Clients.IntuneManagementExtension.DataSensorPlugIn.dll.decompiled.cs) / [secondary](review-health/secondary/Microsoft.Management.Clients.IntuneManagementExtension.DataSensorPlugIn.dll.decompiled.cs) |
-| S0 / S1 | [Primary ScriptPlugIn](decompiled/primary/Microsoft.Management.Clients.IntuneManagementExtension.ScriptPlugIn.decompiled.cs) / [secondary](decompiled/secondary/Microsoft.Management.Clients.IntuneManagementExtension.ScriptPlugIn.decompiled.cs) |
-| A1 | [Secondary AgentCommon](decompiled/secondary/Microsoft.Management.Services.IntuneWindowsAgent.AgentCommon.decompiled.cs) |
+| H0 / H1 | `review-health/primary/ClientHealthEval.exe.decompiled.cs` / `review-health/secondary/ClientHealthEval.exe.decompiled.cs` |
+| D0 / D1 | `review-health/primary/Microsoft.Management.Clients.IntuneManagementExtension.DataSensorPlugIn.dll.decompiled.cs` / `review-health/secondary/Microsoft.Management.Clients.IntuneManagementExtension.DataSensorPlugIn.dll.decompiled.cs` |
+| S0 / S1 | `decompiled/primary/Microsoft.Management.Clients.IntuneManagementExtension.ScriptPlugIn.decompiled.cs` / `decompiled/secondary/Microsoft.Management.Clients.IntuneManagementExtension.ScriptPlugIn.decompiled.cs` |
+| A1 | `decompiled/secondary/Microsoft.Management.Services.IntuneWindowsAgent.AgentCommon.decompiled.cs` |
 
 ## 8. DataSensor collects DM Sync events 209 and 321
 
@@ -548,7 +550,7 @@ The actual CAB payload contains **18 → 19 files**, excluding the `extraction.l
 
 Every manifest FileHashes entry was checked against the extracted file with SHA-256: **18/18 primary and 19/19 secondary matched**, with no unexpected payload files. Each CAB's SHA-256 also matches its manifest `Component.PackageHash`. The source manifest still describes `Component.Version=1.0.0`; that unchanged component configuration string does not imply unchanged bundle contents.
 
-Evidence: [managed-nested-bundle-integrity.json](managed-nested-bundle-integrity.json), including every expected/actual hash; verification source `tools/ManagedDiff/Verify-NestedBundle.ps1`. Extracted evidence is `tools/ManagedDiff/nested/{primary,secondary}/winre/`; decompiled C# is `decompiled-nested/{primary,secondary}/winre/`.
+Evidence: `managed-nested-bundle-integrity.json`, including every expected/actual hash; verification source `tools/ManagedDiff/Verify-NestedBundle.ps1`. Extracted evidence is `tools/ManagedDiff/nested/{primary,secondary}/winre/`; decompiled C# is `decompiled-nested/{primary,secondary}/winre/`.
 
 ### Bundle synchronization replaces direct in-place DLL overwrites
 
@@ -619,9 +621,9 @@ These are member/body comparison counts after resolving metadata tokens and attr
 
 Four of the 45 common-body candidates differ only in remaining generated-identifier ordinals (three Component, one Framework), leaving **41 non-numbering common-body candidates**. There are also 30 potential unique generated-method rename pairs among added/removed keys. `WinRe.Registration` has no changed common method bodies or type/field/method additions/removals in this comparison; its file/signature/version identity changes are separate evidence.
 
-Artifacts: [managed-nested-winre/managed-comparison.json](managed-nested-winre/managed-comparison.json), [managed-nested-winre/managed-summary.csv](managed-nested-winre/managed-summary.csv), [managed-nested-winre-numbering.json](managed-nested-winre-numbering.json). IL dumps are linked from each JSON method entry.
+Artifacts: `managed-nested-winre/managed-comparison.json`, `managed-nested-winre/managed-summary.csv`, `managed-nested-winre-numbering.json`. IL dumps are linked from each JSON method entry.
 
-The embedded SfxCA package separately contains seven managed assembly files. The same comparator finds **zero changed normalized common method bodies, zero added/removed methods, and zero type/field additions/removals** in these seven files. This does not by itself assert identical resources or custom-attribute blobs. Evidence: [managed-nested-sfxca/managed-comparison.json](managed-nested-sfxca/managed-comparison.json).
+The embedded SfxCA package separately contains seven managed assembly files. The same comparator finds **zero changed normalized common method bodies, zero added/removed methods, and zero type/field additions/removals** in these seven files. This does not by itself assert identical resources or custom-attribute blobs. Evidence: `managed-nested-sfxca/managed-comparison.json`.
 
 #### Embedded SfxCA eight-file inventory
 
@@ -642,7 +644,7 @@ The embedded custom-action CAB has **eight payload files** (seven managed assemb
 
 `CustomAction.config` has **no textual or byte difference**: both SHA-256 `B4D352FBE16FFBD9AAF285ECEA982612A907DA3266096EBEBCBF1180D4F24016`. It retains `useLegacyV2RuntimeActivationPolicy="true"`, with supported runtimes `v4.0` and `v2.0.50727`; no assembly binding redirects appear in this file. The localized TaskScheduler satellite is byte-identical as well. These exact hash comparisons establish identity for those seven unchanged files. The changed custom-action DLL's unchanged method bodies do not by themselves prove that every resource/custom attribute is unchanged.
 
-Full expected-side SHA-256 values and sizes for all eight files: [managed-nested-sfxca-files.json](managed-nested-sfxca-files.json).
+Full expected-side SHA-256 values and sizes for all eight files: `managed-nested-sfxca-files.json`.
 
 Additional metadata inspection of the changed custom-action DLL finds **zero managed-resource bytes in either side**, identical assembly-reference identities, and exactly two changed assembly custom-attribute values: `AssemblyFileVersion` (1.106.106.0→1.108.101.0) and `AssemblyInformationalVersion` (build identity). The module MVID also changes. Every other assembly custom-attribute constructor/value pair matches. This check concerns CLR managed resources and assembly attributes; Win32 PE resources and signing bytes are separate. The expanded assembly summaries in `managed-nested-sfxca/managed-comparison.json` retain the resource size and complete raw assembly attribute values.
 
@@ -804,7 +806,7 @@ These observations compare the downloaded primary `1.106.106.0` payload against 
 
 PE section differences prove byte differences in executable sections; they do not distinguish every compiler/layout change from an algorithm change. New import/export names prove a changed binary interface, not that a particular device executes it. These tables therefore deliberately avoid claiming a complete native behavior reconstruction.
 
-IDA was attempted independently on both root DynPin builds. Both sandboxed attempts failed before analysis with `Fatal registry error: Access is denied`. The escalated retry did not yield an analysis result and was aborted after remaining pending. **There is no successful IDA triage, xref, disassembly, or decompilation evidence in this investigation.** Native claims below are restricted to directly parsed PE evidence. The separately produced managed-method comparisons and C# inspection supply the function-level behavior evidence elsewhere in the main report.
+Native function-level IDA analysis did not complete. There is no native IDA triage, xref, disassembly or decompilation evidence in this report. Native claims below are restricted to directly parsed PE evidence. The separately produced managed-method comparisons and C# inspection supply the function-level behavior evidence elsewhere in the main report.
 
 The parser's managed-PE summary counts are not used as managed inventory counts; use the dedicated managed comparator for that inventory.
 
@@ -888,7 +890,7 @@ System.Text.Json
 
 Those are binding/assembly versions. They should not be substituted for package or file versions without checking the particular DLL. Full old/new payload file versions are preserved in the file appendix and manifests.
 
-Evidence: [normal configuration difference](text-diffs/02-Microsoft.Management.Services.IntuneWindowsAgent.exe.config.diff), [backup configuration difference](text-diffs/03-Microsoft.Management.Services.IntuneWindowsAgent.exe.config.bak.diff).
+Evidence: `text-diffs/02-Microsoft.Management.Services.IntuneWindowsAgent.exe.config.diff`, `text-diffs/03-Microsoft.Management.Services.IntuneWindowsAgent.exe.config.bak.diff`.
 
 ## MSI installation mechanics remain structurally stable
 
@@ -906,11 +908,11 @@ No MSI File target paths, components, directories, services, registry rows, cust
 
 The unchanged MSI CustomAction table describes invocation wiring. It does not by itself prove the embedded custom-action assembly is unchanged; the actual SfxCA contents are examined separately in the native/custom-action section.
 
-Evidence: [msi-diff.json](msi-diff.json), [primary tables](primary/tables), [secondary tables](secondary/tables).
+Evidence: `msi-diff.json`, `primary/tables`, `secondary/tables`.
 
 ## Evidence, confidence and limits
 
-High-confidence findings are tied to the exact package hashes, table rows, extracted files, method signatures, branch conditions, constants and native PE comparison artifacts. Reconstructed C# is decompiler output, not Microsoft's original source; normalized IL and the original package bytes remain the underlying evidence. Native IDA triage was attempted but the local launch failed with access denied and its escalated retry did not complete. Native findings are consequently limited to executable/data section hashes, imports, exports and strings; they do not reconstruct native function control flow.
+High-confidence findings are tied to the exact package hashes, table rows, extracted files, method signatures, branch conditions, constants and native PE comparison artifacts. Reconstructed C# is decompiler output, not Microsoft's original source; normalized IL and the original package bytes remain the underlying evidence. Native function-level IDA analysis did not complete. Native findings are consequently limited to executable/data section hashes, imports, exports and strings; they do not reconstruct native function control flow.
 
 Metadata tokens are resolved to member/signature identities and user strings for method comparison, so moving a token does not count as new logic. Async state-machine attribution is considered separately to avoid treating generated ordinal changes as features. Added/removed generated closures, compiler transformations and dependency version references still require review; aggregate counts are a navigation aid, not a count of customer-visible changes. Native thunks in mixed-mode assemblies require native analysis and are not treated as managed IL.
 
@@ -931,7 +933,7 @@ These are follow-up experiments, not tests performed during this comparison:
 
 ## Appendix A. Managed comparison candidates
 
-These are canonicalized metadata/IL comparison counts, including generated implementation details. They are not a count of independent features or fixes. Rows with no method/type/field changes are omitted here; the complete 119-path result is retained in [managed-stable/managed-comparison.json](managed-stable/managed-comparison.json).
+These are canonicalized metadata/IL comparison counts, including generated implementation details. They are not a count of independent features or fixes. Rows with no method/type/field changes are omitted here; the complete 119-path result is retained in `managed-stable/managed-comparison.json`.
 
 | Assembly | Types | Methods | Fields | Common-body candidates | Added / removed method keys |
 | --- | --- | --- | --- | --- | --- |
@@ -952,7 +954,7 @@ These are canonicalized metadata/IL comparison counts, including generated imple
 
 ## Appendix B. Complete outer MSI payload comparison
 
-Paths are relative to `[ProgramFilesFolder]/Microsoft Intune Management Extension/`. “Changed” means different SHA-256 bytes; it does not imply changed runtime behavior. Null MSI file versions are shown as `—`. The full before/after SHA-256 values are preserved in [payload-diff.json](payload-diff.json); extracted-file identities are in the two `file-manifest.json` files.
+Paths are relative to `[ProgramFilesFolder]/Microsoft Intune Management Extension/`. “Changed” means different SHA-256 bytes; it does not imply changed runtime behavior. Null MSI file versions are shown as `—`. The full before/after SHA-256 values are preserved in `payload-diff.json`; extracted-file identities are in the two `file-manifest.json` files.
 
 | Installed path | Bytes: primary → secondary | MSI file version: primary → secondary | SHA-256 comparison |
 | --- | --- | --- | --- |
@@ -1115,26 +1117,26 @@ Paths are relative to `[ProgramFilesFolder]/Microsoft Intune Management Extensio
 
 | Artifact | Purpose |
 | --- | --- |
-| [downloads.json](downloads.json) | Exact source endpoints and acquisition UTC times |
-| [primary/package.json](primary/package.json), [secondary/package.json](secondary/package.json) | MSI summary, product properties, SHA-256 and signature result |
-| [msi-diff.json](msi-diff.json) | Keyed relational table/column differences |
-| [payload-diff.json](payload-diff.json) | All target-path file hashes, sizes, versions and duplicate-content groups |
-| [primary/extraction-validation.json](primary/extraction-validation.json), [secondary](secondary/extraction-validation.json) | CAB aliases, sizes and authored MsiFileHash validation |
-| [managed-stable/managed-comparison.json](managed-stable/managed-comparison.json) | Managed comparison with token and async-state attribution |
-| [managed-numbering-review.json](managed-numbering-review.json) | Remaining generated-identifier ordinal candidate classification |
-| [decompiled-diffs](decompiled-diffs) | Reviewed core assembly C# differences |
-| [review-health](review-health) | Health/DataSensor decompilation and diffs |
-| [native-diff.json](native-diff.json) | Native executable sections, imports, exports and string deltas |
-| [native-winre-diff.json](native-winre-diff.json), [native-sfxca-diff.json](native-sfxca-diff.json) | Nested native WinRE and SfxCA shell section/interface comparison |
-| [managed-nested-bundle-integrity.json](managed-nested-bundle-integrity.json) | Every nested WinRE manifest file hash and CAB hash |
-| [managed-nested-winre/managed-comparison.json](managed-nested-winre/managed-comparison.json) | Nested managed WinRE metadata and normalized IL |
-| [managed-nested-sfxca-files.json](managed-nested-sfxca-files.json) | All eight custom-action payload files, sizes and hashes |
-| [tools](tools) | Reusable extraction and comparison helpers |
+| `downloads.json` | Exact source endpoints and acquisition UTC times |
+| `primary/package.json`, `secondary/package.json` | MSI summary, product properties, SHA-256 and signature result |
+| `msi-diff.json` | Keyed relational table/column differences |
+| `payload-diff.json` | All target-path file hashes, sizes, versions and duplicate-content groups |
+| `primary/extraction-validation.json`, `secondary/extraction-validation.json` | CAB aliases, sizes and authored MsiFileHash validation |
+| `managed-stable/managed-comparison.json` | Managed comparison with token and async-state attribution |
+| `managed-numbering-review.json` | Remaining generated-identifier ordinal candidate classification |
+| `decompiled-diffs` | Reviewed core assembly C# differences |
+| `review-health` | Health/DataSensor decompilation and diffs |
+| `native-diff.json` | Native executable sections, imports, exports and string deltas |
+| `native-winre-diff.json`, `native-sfxca-diff.json` | Nested native WinRE and SfxCA shell section/interface comparison |
+| `managed-nested-bundle-integrity.json` | Every nested WinRE manifest file hash and CAB hash |
+| `managed-nested-winre/managed-comparison.json` | Nested managed WinRE metadata and normalized IL |
+| `managed-nested-sfxca-files.json` | All eight custom-action payload files, sizes and hashes |
+| `tools` | Reusable extraction and comparison helpers |
 
 ## Sources and reproducibility
 
-Primary inputs are the [downloaded primary MSI](packages/IntuneWindowsAgent-primary.msi) and [downloaded secondary MSI](packages/IntuneWindowsAgent-secondary.msi), identified by the hashes above. The source URLs and acquisition receipt are in [downloads.json](downloads.json).
+Primary inputs are the `packages/IntuneWindowsAgent-primary.msi` and `packages/IntuneWindowsAgent-secondary.msi`, identified by the hashes above. The source URLs and acquisition receipt are in `downloads.json`.
 
-The style/baseline references are the user's [IME Change Tracker](https://github.com/call4cloud-code/IME-Change-Tracker), its [previous comparison](https://github.com/call4cloud-code/IME-Change-Tracker/blob/main/release-notes/ime-1.106.102.0-to-1.106.106.0.md), and the [larger 1.105.152.0 to 1.106.102.0 comparison](https://github.com/call4cloud-code/IME-Change-Tracker/blob/main/release-notes/ime-1.105.152.0-to-1.106.102.0.md). A snapshot of the public repository was downloaded for this analysis; no GitHub changes were published.
+The style/baseline references are [IME Change Tracker](https://github.com/call4cloud-code/IME-Change-Tracker), its [previous comparison](https://github.com/call4cloud-code/IME-Change-Tracker/blob/main/release-notes/ime-1.106.102.0-to-1.106.106.0.md), and the [larger 1.105.152.0 to 1.106.102.0 comparison](https://github.com/call4cloud-code/IME-Change-Tracker/blob/main/release-notes/ime-1.105.152.0-to-1.106.102.0.md). A snapshot of the public repository was downloaded as the comparison-format reference.
 
-Reusable analysis tooling is retained under [tools](tools), including MSI export, CAB integrity verification, payload comparison, managed IL comparison and core decompilation. Local evidence links are relative to this report's folder. Preserve the folder alongside this Markdown file for those links to remain available.
+Reusable analysis tooling is retained under `tools`, including MSI export, CAB integrity verification, payload comparison, managed IL comparison and core decompilation. Evidence paths refer to that retained local analysis folder; they are not repository download links.
