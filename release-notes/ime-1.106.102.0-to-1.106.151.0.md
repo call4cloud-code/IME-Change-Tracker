@@ -8,10 +8,6 @@
 
 The main changes in `1.106.151.0` are around trust and diagnostics. There is new code for signed component verification, stronger and safer TLS certificate pinning handling, reporting of certificate pinning failures, and additional Windows MDM session telemetry. The native policy storage binary also contains more WinDC document signature validation references.
 
-For **WDAC and Managed Installer**, there is **no verified change to the established policy application, tagging, or Win32 app integration paths** in this comparison. The relevant methods in `BootstrapperAgentCore.dll`, `ScriptPlugIn.dll`, and `Win32AppPlugIn.dll` retain identical IL bodies. The methods under `ManagedInstallerSynchronizationHelper` and `WdacWMIHelper` in `AgentCommon.dll` have the same normalized IL instruction sequences; their raw IL differences come from metadata token changes.
-
-This is **not** a new Managed Installer implementation. It is a security validation and telemetry oriented release.
-
 ### At a glance
 
 | Item | 1.106.102.0 | 1.106.151.0 |
