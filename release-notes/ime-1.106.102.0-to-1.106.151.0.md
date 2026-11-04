@@ -29,11 +29,7 @@ The main changes in `1.106.151.0` are around trust and diagnostics. There is new
 
 The two embedded CABs contain three alias records that share data with other CAB records. The counts above include the alias file entries and compare their resolved file contents. The aliases are `f_appConfigShadow`, `_E9B6082C`, and `_34C9B140`.
 
-## 1. WDAC and Managed Installer: no confirmed functional delta
-
-The high value question is whether IME changed how it applies a Managed Installer policy, synchronizes a WDAC policy, or handles the trust status of an installed Win32 app. The comparison does not show such a change.
-
-### Exact methods checked
+## 1. Exact methods checked
 
 | Component | Method | Finding |
 | --- | --- | --- |
